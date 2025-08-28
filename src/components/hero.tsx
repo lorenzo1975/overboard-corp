@@ -11,7 +11,7 @@ export function Hero() {
         fill
         className="object-cover"
         priority
-        data-ai-hint="powerful wave"
+        data-ai-hint="ocean wave"
       />
       <div className="absolute inset-0 bg-primary/70" />
       <div className="relative z-10 text-center px-4">
