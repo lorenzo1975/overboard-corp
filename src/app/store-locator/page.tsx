@@ -1,49 +1,73 @@
+
+'use client'
 import { Header } from '@/components/header';
 import { Footer } from '@/components/footer';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
+import { StoreMap } from '@/components/store-map';
+import { useState } from 'react';
 
 const stores = [
   {
-    name: 'Overboard Phuket - Laguna Beach',
-    address: 'Laguna Beach, Phuket, Thailand',
+    name: "O'NEILL Rawai",
+    address: '100/37 Sayuan, Rawai, Phuket, 83130',
     image: 'https://picsum.photos/800/600',
-    aiHint: 'beachfront store phuket'
+    aiHint: 'surf shop rawai',
+    lat: 7.779,
+    lng: 98.325,
+    mapUrl: 'https://www.google.com/maps/search/?api=1&query=O%27NEILL+Rawai'
   },
   {
-    name: 'Overboard Koh Samui - Chaweng',
-    address: 'Chaweng Beach, Koh Samui, Thailand',
+    name: 'Overboard Bang Tao',
+    address: '9-53, 9-54 Soi Bangtao 2, Cherngtalay, Thalang, Phuket 83110',
     image: 'https://picsum.photos/800/600',
-    aiHint: 'beach shop samui'
+    aiHint: 'beach shop bang tao',
+    lat: 7.994,
+    lng: 98.293,
+    mapUrl: 'https://www.google.com/maps/search/?api=1&query=Overboard+Bang+Tao'
   },
   {
-    name: 'Overboard Pattaya - Jomtien',
-    address: 'Jomtien Beach, Pattaya, Thailand',
+    name: 'Overboard Hua Hin',
+    address: '90 Naresdamri Rd, Hua Hin, Hua Hin District, Prachuap Khiri Khan 77110',
     image: 'https://picsum.photos/800/600',
-    aiHint: 'modern retail pattaya'
+    aiHint: 'watersports store hua hin',
+    lat: 12.571,
+    lng: 99.96,
+    mapUrl: 'https://www.google.com/maps/search/?api=1&query=Overboard+Hua+Hin'
   },
   {
-    name: 'Overboard Hua Hin - Main Strip',
-    address: 'Main Strip, Hua Hin, Thailand',
+    name: 'OVERBOARD KARON',
+    address: '238 Moo 1 Patak Rd, Karon, Mueang Phuket District, Karon, Phuket, 83100',
     image: 'https://picsum.photos/800/600',
-    aiHint: 'watersports shop huahin'
+    aiHint: 'modern retail karon',
+    lat: 7.846,
+    lng: 98.295,
+    mapUrl: 'https://www.google.com/maps/search/?api=1&query=OVERBOARD+KARON'
   },
   {
-    name: 'Overboard Krabi - Ao Nang',
-    address: 'Ao Nang, Krabi, Thailand',
+    name: 'Overboard Nai Harn',
+    address: '15/166-167 Moo 1 Mueang Phuket, Rawai, Phuket, 83130',
     image: 'https://picsum.photos/800/600',
-    aiHint: 'surf store krabi'
+    aiHint: 'surf store nai harn',
+    lat: 7.775,
+    lng: 98.305,
+    mapUrl: 'https://www.google.com/maps/search/?api=1&query=Overboard+Nai+Harn'
   },
   {
-    name: 'Overboard Bangkok - Central',
-    address: 'Central World, Bangkok, Thailand',
+    name: 'Quiksilver Krabi',
+    address: '259/79 Ao Nang, Mueang Krabi District, Krabi 81180',
     image: 'https://picsum.photos/800/600',
-    aiHint: 'city retail bangkok'
+    aiHint: 'quiksilver store krabi',
+    lat: 8.032,
+    lng: 98.822,
+    mapUrl: 'https://www.google.com/maps/search/?api=1&query=Quiksilver+Krabi'
   },
 ]
 
 export default function StoreLocatorPage() {
+  const [activeStore, setActiveStore] = useState<(typeof stores)[0] | null>(null);
+
   return (
     <div className="flex min-h-screen flex-col bg-background">
       <Header />
@@ -52,19 +76,12 @@ export default function StoreLocatorPage() {
           OUR STORES
         </h1>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
-          <div className="relative h-[600px] md:h-full">
-            <Image
-              src="https://picsum.photos/1200/1200"
-              alt="Map of store locations"
-              fill
-              className="object-cover rounded-lg"
-              data-ai-hint="thailand map"
-            />
-             <div className="absolute inset-0 bg-black/20 rounded-lg"></div>
+          <div className="relative h-[600px] md:h-full rounded-lg overflow-hidden">
+             <StoreMap stores={stores} activeStore={activeStore} setActiveStore={setActiveStore}/>
           </div>
           <div className="flex flex-col gap-8">
             {stores.map((store, index) => (
-              <div key={store.name}>
+              <div key={store.name} onMouseEnter={() => setActiveStore(store)} onMouseLeave={() => setActiveStore(null)}>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <div className="relative h-48 w-full">
                     <Image
@@ -80,7 +97,9 @@ export default function StoreLocatorPage() {
                         <h2 className="text-2xl font-bold font-headline">{store.name}</h2>
                         <p className="text-muted-foreground mt-1">{store.address}</p>
                     </div>
-                    <Button variant="outline" className="mt-4 w-full sm:w-auto">Location</Button>
+                    <Button variant="outline" className="mt-4 w-full sm:w-auto" asChild>
+                      <a href={store.mapUrl} target="_blank" rel="noopener noreferrer">Location</a>
+                    </Button>
                     </div>
                 </div>
                 {index < stores.length - 1 && <Separator className="mt-8" />}
