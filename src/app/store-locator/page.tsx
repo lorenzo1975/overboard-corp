@@ -88,6 +88,7 @@ export default function StoreLocatorPage() {
                         src={store.image}
                         alt={`Image of ${store.name}`}
                         fill
+                        sizes="(max-width: 640px) 100vw, 50vw"
                         className="object-cover rounded-md"
                         data-ai-hint={store.aiHint}
                     />

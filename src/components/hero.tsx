@@ -6,9 +6,10 @@ export function Hero() {
   return (
     <section className="relative h-[80vh] min-h-[600px] w-full flex items-center justify-center text-white">
       <Image
-        src="/images/hero.png"
+        src="/hero.png"
         alt="A powerful ocean wave"
         fill
+        sizes="100vw"
         className="object-cover"
         priority
         data-ai-hint="ocean wave"
