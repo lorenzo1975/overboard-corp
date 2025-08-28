@@ -1,7 +1,8 @@
 
 'use client'
 import React from 'react';
-import { GoogleMap, useJsApiLoader, Marker, InfoWindow } from '@react-google-maps/api';
+import { GoogleMap, useJsApiLoader, InfoWindow } from '@react-google-maps/api';
+import type { AdvancedMarkerElement } from 'google.maps.marker';
 
 const containerStyle = {
   width: '100%',
@@ -15,6 +16,7 @@ const center = {
 };
 
 const mapOptions = {
+  mapId: 'OVERBOARD_ASIA_MAP_ID', // Recommended for Advanced Markers
   styles: [
     {
       "elementType": "geometry",
@@ -197,9 +199,80 @@ interface StoreMapProps {
 export function StoreMap({ stores, activeStore, setActiveStore }: StoreMapProps) {
   const { isLoaded, loadError } = useJsApiLoader({
     id: 'google-map-script',
-    googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || ""
+    googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || "",
+    libraries: ['marker'] // Required for AdvancedMarker
   })
 
+  const [map, setMap] = React.useState<google.maps.Map | null>(null);
+  const [infoWindowStore, setInfoWindowStore] = React.useState<Store | null>(null);
+  const [markers, setMarkers] = React.useState<{[key: string]: AdvancedMarkerElement}>({});
+  
+  const markerRefs = React.useRef<{[key: string]: AdvancedMarkerElement}>({});
+
+  const onLoad = React.useCallback(function callback(map: google.maps.Map) {
+    map.setZoom(7);
+    map.setCenter(center);
+    setMap(map);
+  }, [])
+
+  const onUnmount = React.useCallback(function callback(map: google.maps.Map) {
+    setMap(null);
+  }, [])
+
+  React.useEffect(() => {
+    if (map && isLoaded) {
+      const newMarkers: {[key: string]: AdvancedMarkerElement} = {};
+      stores.forEach(store => {
+        const pin = new google.maps.marker.PinElement({
+          background: 'hsl(var(--primary))',
+          borderColor: 'hsl(var(--primary))',
+          glyphColor: 'hsl(var(--primary-foreground))',
+        });
+        const marker = new google.maps.marker.AdvancedMarkerElement({
+          map,
+          position: { lat: store.lat, lng: store.lng },
+          title: store.name,
+          content: pin.element
+        });
+        marker.addListener('click', () => {
+          setInfoWindowStore(store);
+        });
+        marker.element.addEventListener('mouseover', () => setActiveStore(store));
+        marker.element.addEventListener('mouseout', () => setActiveStore(null));
+
+        newMarkers[store.name] = marker;
+      });
+      setMarkers(newMarkers);
+      markerRefs.current = newMarkers;
+
+      // Cleanup function
+      return () => {
+        Object.values(markerRefs.current).forEach(marker => {
+            // Check if marker is still on the map before trying to remove
+            if (marker.map) {
+                marker.map = null;
+            }
+        });
+      };
+
+    }
+  }, [map, isLoaded, stores, setActiveStore]);
+
+   React.useEffect(() => {
+    Object.entries(markers).forEach(([name, marker]) => {
+      const storeIsActive = activeStore?.name === name;
+      const pin = marker.content as HTMLElement;
+      if (pin) {
+        if (storeIsActive) {
+            pin.style.transform = 'scale(1.2)';
+            pin.style.transition = 'transform 0.2s ease-in-out';
+        } else {
+            pin.style.transform = 'scale(1)';
+        }
+      }
+    });
+  }, [activeStore, markers]);
+  
   if (loadError) {
     return <div>Error loading maps</div>
   }
@@ -211,27 +284,18 @@ export function StoreMap({ stores, activeStore, setActiveStore }: StoreMapProps)
   return (
       <GoogleMap
         mapContainerStyle={containerStyle}
-        center={center}
-        zoom={7}
+        onLoad={onLoad}
+        onUnmount={onUnmount}
         options={mapOptions}
       >
-        {stores.map((store) => (
-          <Marker
-            key={store.name}
-            position={{ lat: store.lat, lng: store.lng }}
-            onMouseOver={() => setActiveStore(store)}
-            onMouseOut={() => setActiveStore(null)}
-          />
-        ))}
-
-        {activeStore && (
+        {infoWindowStore && (
           <InfoWindow
-            position={{ lat: activeStore.lat, lng: activeStore.lng }}
-            onCloseClick={() => setActiveStore(null)}
+            position={{ lat: infoWindowStore.lat, lng: infoWindowStore.lng }}
+            onCloseClick={() => setInfoWindowStore(null)}
           >
             <div>
-              <h3 className="font-bold">{activeStore.name}</h3>
-              <p>{activeStore.address}</p>
+              <h3 className="font-bold">{infoWindowStore.name}</h3>
+              <p>{infoWindowStore.address}</p>
             </div>
           </InfoWindow>
         )}
