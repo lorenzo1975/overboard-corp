@@ -9,9 +9,10 @@ import { Menu, X } from 'lucide-react';
 import { ModeToggle } from '@/components/mode-toggle';
 
 const navLinks = [
-  { name: 'The Opportunity', href: '#opportunity' },
-  { name: 'Our Stores', href: '#stores' },
-  { name: 'Growth Strategy', href: '#growth-strategy' },
+  { name: 'The team', href: '/team' },
+  { name: 'Our Story', href: '/story' },
+  { name: 'Store Locator', href: '/store-locator' },
+  { name: "Investor's opportunity", href: '/investors' },
 ];
 
 export function Header() {
