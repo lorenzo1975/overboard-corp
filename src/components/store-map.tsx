@@ -35,12 +35,13 @@ interface StoreMapProps {
     setActiveStore: (store: Store | null) => void;
 }
 
+const libraries: ('marker')[] = ['marker'];
 
 export function StoreMap({ stores, activeStore, setActiveStore }: StoreMapProps) {
   const { isLoaded, loadError } = useJsApiLoader({
     id: 'google-map-script',
     googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || "",
-    libraries: ['marker'] // Required for AdvancedMarker
+    libraries: libraries
   })
 
   const [map, setMap] = React.useState<google.maps.Map | null>(null);
@@ -60,7 +61,7 @@ export function StoreMap({ stores, activeStore, setActiveStore }: StoreMapProps)
   }, [])
 
   React.useEffect(() => {
-    if (map && isLoaded) {
+    if (map && isLoaded && google.maps.marker) {
       const newMarkers: {[key: string]: AdvancedMarkerElement} = {};
       stores.forEach(store => {
         const pin = new google.maps.marker.PinElement({
