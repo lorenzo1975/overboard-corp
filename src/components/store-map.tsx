@@ -10,8 +10,8 @@ const containerStyle = {
 
 // Thailand center
 const center = {
-  lat: 13.736717,
-  lng: 100.523186
+  lat: 9.5,
+  lng: 99.0
 };
 
 const mapOptions = {
@@ -212,7 +212,7 @@ export function StoreMap({ stores, activeStore, setActiveStore }: StoreMapProps)
       <GoogleMap
         mapContainerStyle={containerStyle}
         center={center}
-        zoom={6}
+        zoom={7}
         options={mapOptions}
       >
         {stores.map((store) => (
