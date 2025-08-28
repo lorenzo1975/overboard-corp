@@ -6,7 +6,7 @@ export function Hero() {
   return (
     <section className="relative h-[80vh] min-h-[600px] w-full flex items-center justify-center text-white">
       <Image
-        src="/hero.png"
+        src="/images/hero.png"
         alt="A powerful ocean wave"
         fill
         className="object-cover"

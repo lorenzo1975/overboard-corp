@@ -33,8 +33,8 @@ export function Header() {
         </nav>
         <div className="hidden items-center gap-4 md:flex">
           <ModeToggle />
-          <Button asChild style={{ backgroundColor: 'hsl(var(--accent))', color: 'hsl(var(--accent-foreground))' }}>
-            <Link href="#contact">Investor Relations</Link>
+          <Button asChild className="bg-accent text-accent-foreground hover:bg-accent/90 transition-transform duration-300 ease-in-out hover:scale-105">
+            <Link href="https://overboard.asia">Shop Now</Link>
           </Button>
         </div>
         <div className="md:hidden">
@@ -66,8 +66,8 @@ export function Header() {
                   ))}
                 </nav>
                 <div className="mt-auto flex items-center justify-between p-4">
-                  <Button asChild className="flex-grow" style={{ backgroundColor: 'hsl(var(--accent))', color: 'hsl(var(--accent-foreground))' }}>
-                    <Link href="#contact" onClick={() => setIsMenuOpen(false)}>Investor Relations</Link>
+                  <Button asChild className="flex-grow bg-accent text-accent-foreground hover:bg-accent/90 transition-transform duration-300 ease-in-out hover:scale-105">
+                    <Link href="https://overboard.asia" onClick={() => setIsMenuOpen(false)}>Shop Now</Link>
                   </Button>
                   <div className="ml-4">
                     <ModeToggle />
