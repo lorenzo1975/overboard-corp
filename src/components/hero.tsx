@@ -6,12 +6,12 @@ export function Hero() {
   return (
     <section className="relative h-[80vh] min-h-[600px] w-full flex items-center justify-center text-white">
       <Image
-        src="https://picsum.photos/1920/1080"
-        alt="Scenic water sports location in Thailand"
+        src="https://picsum.photos/1920/1080?grayscale&blur=2"
+        alt="A powerful ocean wave"
         fill
         className="object-cover"
         priority
-        data-ai-hint="watersports thailand"
+        data-ai-hint="ocean wave"
       />
       <div className="absolute inset-0 bg-primary/70" />
       <div className="relative z-10 text-center px-4">
