@@ -12,7 +12,7 @@ const stores = [
   {
     name: "O'NEILL Rawai",
     address: '100/37 Sayuan, Rawai, Phuket, 83130',
-    image: 'https://picsum.photos/800/600',
+    image: '/oneill-rawai.jpg',
     aiHint: 'surf shop rawai',
     lat: 7.779,
     lng: 98.325,
@@ -21,7 +21,7 @@ const stores = [
   {
     name: 'Overboard Bang Tao',
     address: '9-53, 9-54 Soi Bangtao 2, Cherngtalay, Thalang, Phuket 83110',
-    image: 'https://picsum.photos/800/600',
+    image: '/overboard-bang-tao.jpg',
     aiHint: 'beach shop bang tao',
     lat: 7.994,
     lng: 98.293,
@@ -30,7 +30,7 @@ const stores = [
   {
     name: 'Overboard Hua Hin',
     address: '90 Naresdamri Rd, Hua Hin, Hua Hin District, Prachuap Khiri Khan 77110',
-    image: 'https://picsum.photos/800/600',
+    image: '/overboard-hua-hin.jpg',
     aiHint: 'watersports store hua hin',
     lat: 12.571,
     lng: 99.96,
@@ -39,7 +39,7 @@ const stores = [
   {
     name: 'OVERBOARD KARON',
     address: '238 Moo 1 Patak Rd, Karon, Mueang Phuket District, Karon, Phuket, 83100',
-    image: 'https://picsum.photos/800/600',
+    image: '/overboard-karon.jpg',
     aiHint: 'modern retail karon',
     lat: 7.846,
     lng: 98.295,
@@ -48,7 +48,7 @@ const stores = [
   {
     name: 'Overboard Nai Harn',
     address: '15/166-167 Moo 1 Mueang Phuket, Rawai, Phuket, 83130',
-    image: 'https://picsum.photos/800/600',
+    image: '/overboard-nai-harn.jpg',
     aiHint: 'surf store nai harn',
     lat: 7.775,
     lng: 98.305,
@@ -57,7 +57,7 @@ const stores = [
   {
     name: 'Quiksilver Krabi',
     address: '259/79 Ao Nang, Mueang Krabi District, Krabi 81180',
-    image: 'https://picsum.photos/800/600',
+    image: '/quiksilver-krabi.jpg',
     aiHint: 'quiksilver store krabi',
     lat: 8.032,
     lng: 98.822,
