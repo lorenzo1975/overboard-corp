@@ -102,7 +102,7 @@ export default function StoreLocatorPage() {
                     </Button>
                     </div>
                 </div>
-                {index < stores.length - 1 && <Separator className="mt-8" />}
+                {index < stores.length - 1 && <Separator key={`separator-${store.name}`} className="mt-8" />}
               </div>
             ))}
           </div>

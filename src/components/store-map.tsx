@@ -219,7 +219,6 @@ export function StoreMap({ stores, activeStore, setActiveStore }: StoreMapProps)
           <Marker
             key={store.name}
             position={{ lat: store.lat, lng: store.lng }}
-            onClick={() => setActiveStore(store)}
             onMouseOver={() => setActiveStore(store)}
             onMouseOut={() => setActiveStore(null)}
           />
