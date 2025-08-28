@@ -46,7 +46,7 @@ export function Footer() {
         </div>
         <Separator className="my-8 bg-primary-foreground/20" />
         <div className="text-center text-xs text-primary-foreground/60">
-          <p>© 2025 Overboard Asia Co., Ltd. All Rights Reserved.</p>
+          <p>© 2025 Overboard Co., Ltd. All Rights Reserved.</p>
           <p className="mt-2">This website is for informational purposes only and does not constitute an offer to sell or a solicitation of an offer to buy any security.</p>
         </div>
       </div>

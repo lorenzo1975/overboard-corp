@@ -3,7 +3,7 @@ import { Toaster } from "@/components/ui/toaster";
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'Overboard Asia: Investor Landing',
+  title: 'Overboard: Investor Landing',
   description: 'A proven retail model with six profitable locations, poised for strategic expansion. Discover the opportunity to invest in a market leader.',
 };
 

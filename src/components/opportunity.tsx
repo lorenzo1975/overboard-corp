@@ -19,7 +19,7 @@ export function Opportunity() {
           </div>
           <div className="order-1 md:order-2">
             <Image
-              src="https://placehold.co/800x600.png"
+              src="https://picsum.photos/800/600"
               alt="Customers enjoying water sports products"
               width={800}
               height={600}

@@ -6,7 +6,7 @@ export function Hero() {
   return (
     <section className="relative h-[80vh] min-h-[600px] w-full flex items-center justify-center text-white">
       <Image
-        src="https://placehold.co/1920x1080.png"
+        src="https://picsum.photos/1920/1080"
         alt="Scenic water sports location in Thailand"
         fill
         className="object-cover"
