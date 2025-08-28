@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { Logo } from '@/components/logo';
 import { Menu, X } from 'lucide-react';
+import { ModeToggle } from '@/components/mode-toggle';
 
 const navLinks = [
   { name: 'The Opportunity', href: '#opportunity' },
@@ -30,6 +31,7 @@ export function Header() {
           ))}
         </nav>
         <div className="hidden items-center gap-4 md:flex">
+          <ModeToggle />
           <Button asChild style={{ backgroundColor: 'hsl(var(--accent))', color: 'hsl(var(--accent-foreground))' }}>
             <Link href="#contact">Investor Relations</Link>
           </Button>
@@ -62,10 +64,13 @@ export function Header() {
                     </Link>
                   ))}
                 </nav>
-                <div className="mt-auto p-4">
-                  <Button asChild className="w-full" style={{ backgroundColor: 'hsl(var(--accent))', color: 'hsl(var(--accent-foreground))' }}>
+                <div className="mt-auto flex items-center justify-between p-4">
+                  <Button asChild className="flex-grow" style={{ backgroundColor: 'hsl(var(--accent))', color: 'hsl(var(--accent-foreground))' }}>
                     <Link href="#contact" onClick={() => setIsMenuOpen(false)}>Investor Relations</Link>
                   </Button>
+                  <div className="ml-4">
+                    <ModeToggle />
+                  </div>
                 </div>
               </div>
             </SheetContent>
