@@ -8,6 +8,11 @@ export default function TeamPage() {
     <div className="flex min-h-screen flex-col bg-background">
       <Header />
       <main className="flex-1">
+        <div className="container mx-auto px-4 py-12 sm:px-6 lg:px-8">
+          <h1 className="text-8xl font-extrabold tracking-tight text-center mb-12 font-headline">
+            The Team
+          </h1>
+        </div>
         <TeamIntro />
         <TeamMembers />
       </main>

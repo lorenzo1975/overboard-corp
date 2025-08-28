@@ -10,7 +10,7 @@ export default function InvestorsPage() {
       <Header />
       <main className="flex-1">
         <div className="container mx-auto px-4 py-12 sm:px-6 lg:px-8 text-center">
-            <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl font-headline">
+            <h1 className="text-8xl font-extrabold tracking-tight text-center mb-12 font-headline">
             Investor's Opportunity
             </h1>
             <p className="mt-6 max-w-3xl mx-auto text-lg text-muted-foreground sm:text-xl">
