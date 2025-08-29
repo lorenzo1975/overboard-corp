@@ -5,61 +5,61 @@ const teamMembers = [
   {
     name: 'Alex "Captain" Jensen',
     role: 'Founder & CEO',
-    avatar: 'https://picsum.photos/400/400?random=1',
+    avatar: '/images/team/Alex-artwork.png',
     aiHint: 'male portrait professional'
   },
   {
     name: 'Ben "The Maverick" Carter',
     role: 'Head of Operations',
-    avatar: 'https://picsum.photos/400/400?random=2',
+    avatar: '/images/team/Ben-artwork.png',
     aiHint: 'male portrait smiling'
   },
   {
     name: 'Chloe "Starlight" Davis',
     role: 'Chief Marketing Officer',
-    avatar: 'https://picsum.photos/400/400?random=3',
+    avatar: '/images/team/Chloe-artwork.png',
     aiHint: 'female portrait professional'
   },
   {
     name: 'David "The Navigator" Chen',
     role: 'Head of Expansion',
-    avatar: 'https://picsum.photos/400/400?random=4',
+    avatar: '/images/team/David-artwork.png',
     aiHint: 'male portrait serious'
   },
   {
     name: 'Eva "The Anchor" Rostova',
     role: 'Chief Financial Officer',
-    avatar: 'https://picsum.photos/400/400?random=5',
+    avatar: '/images/team/Eva-artwork.png',
     aiHint: 'female portrait finance'
   },
   {
     name: 'Frank "The Fin" Miller',
     role: 'Head of Product',
-    avatar: 'https://picsum.photos/400/400?random=6',
+    avatar: '/images/team/Frank-artwork.png',
     aiHint: 'male portrait product'
   },
   {
     name: 'Grace "The Current" Lee',
     role: 'Community Manager',
-    avatar: 'https://picsum.photos/400/400?random=7',
+    avatar: '/images/team/Grace-artwork.png',
     aiHint: 'female portrait community'
   },
   {
     name: 'Henry "The Helm" Wong',
     role: 'Lead Retail Strategist',
-    avatar: 'https://picsum.photos/400/400?random=8',
+    avatar: '/images/team/Henry-artwork.png',
     aiHint: 'male portrait retail'
   },
   {
     name: 'Isla "The Tide" Garcia',
     role: 'Creative Director',
-    avatar: 'https://picsum.photos/400/400?random=9',
+    avatar: '/images/team/Isla-artwork.png',
     aiHint: 'female portrait creative'
   },
   {
-    name: 'Jack "The Jetty" Kim',
+    name: 'Bee "The Jetty" Kim',
     role: 'Logistics Coordinator',
-    avatar: 'https://picsum.photos/400/400?random=10',
+    avatar: '/images/team/Bee-artwork.png',
     aiHint: 'male portrait logistics'
   },
 ];
