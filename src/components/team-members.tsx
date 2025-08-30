@@ -59,7 +59,7 @@ const teamMembers = [
   {
     name: 'Bee "The Jetty" Kim',
     role: 'Logistics Coordinator',
-    avatar: '/images/team/Bee-artwork.png',
+    avatar: '/images/team/Panda.jpg',
     aiHint: 'male portrait logistics'
   },
 ];
