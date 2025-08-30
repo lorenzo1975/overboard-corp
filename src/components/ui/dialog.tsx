@@ -31,10 +31,12 @@ DialogOverlay.displayName = DialogPrimitive.Overlay.displayName
 
 type DialogContextValue = {
   titleId?: string
+  setTitleId: (id: string) => void
   descriptionId?: string
+  setDescriptionId: (id: string) => void
 }
 
-const DialogContext = React.createContext<DialogContextValue>({})
+const DialogContext = React.createContext<DialogContextValue | null>(null)
 
 const DialogContent = React.forwardRef<
   React.ElementRef<typeof DialogPrimitive.Content>,
@@ -44,7 +46,7 @@ const DialogContent = React.forwardRef<
   const [descriptionId, setDescriptionId] = React.useState<string | undefined>()
 
   return (
-    <DialogContext.Provider value={{ titleId, descriptionId }}>
+    <DialogContext.Provider value={{ titleId, setTitleId, descriptionId, setDescriptionId }}>
       <DialogPortal>
         <DialogOverlay />
         <DialogPrimitive.Content
@@ -57,15 +59,7 @@ const DialogContent = React.forwardRef<
           )}
           {...props}
         >
-          {React.Children.map(children, (child) =>
-            React.isValidElement(child)
-              ? React.cloneElement(child, {
-                  ...child.props,
-                  onTitleMount: (id: string) => setTitleId(id),
-                  onDescriptionMount: (id: string) => setDescriptionId(id),
-                } as React.HTMLAttributes<HTMLElement>)
-              : child
-          )}
+          {children}
           <DialogPrimitive.Close className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground">
             <X className="h-4 w-4" />
             <span className="sr-only">Close</span>
@@ -107,12 +101,13 @@ DialogFooter.displayName = "DialogFooter"
 
 const DialogTitle = React.forwardRef<
   React.ElementRef<typeof DialogPrimitive.Title>,
-  React.ComponentPropsWithoutRef<typeof DialogPrimitive.Title> & { onTitleMount?: (id: string) => void }
->(({ className, onTitleMount, ...props }, ref) => {
+  React.ComponentPropsWithoutRef<typeof DialogPrimitive.Title>
+>(({ className, ...props }, ref) => {
   const id = React.useId()
+  const context = React.useContext(DialogContext)
   React.useEffect(() => {
-    onTitleMount?.(id)
-  }, [id, onTitleMount])
+    context?.setTitleId(id)
+  }, [id, context])
 
   return (
     <DialogPrimitive.Title
@@ -130,12 +125,13 @@ DialogTitle.displayName = DialogPrimitive.Title.displayName
 
 const DialogDescription = React.forwardRef<
   React.ElementRef<typeof DialogPrimitive.Description>,
-  React.ComponentPropsWithoutRef<typeof DialogPrimitive.Description> & { onDescriptionMount?: (id: string) => void }
->(({ className, onDescriptionMount, ...props }, ref) => {
+  React.ComponentPropsWithoutRef<typeof DialogPrimitive.Description>
+>(({ className, ...props }, ref) => {
   const id = React.useId()
+  const context = React.useContext(DialogContext)
   React.useEffect(() => {
-    onDescriptionMount?.(id)
-  }, [id, onDescriptionMount])
+    context?.setDescriptionId(id)
+  }, [id, context])
 
   return (
     <DialogPrimitive.Description

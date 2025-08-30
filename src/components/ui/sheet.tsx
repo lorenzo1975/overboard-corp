@@ -51,10 +51,12 @@ const sheetVariants = cva(
 
 type SheetContextValue = {
   titleId?: string
+  setTitleId: (id: string) => void
   descriptionId?: string
+  setDescriptionId: (id: string) => void
 }
 
-const SheetContext = React.createContext<SheetContextValue>({})
+const SheetContext = React.createContext<SheetContextValue | null>(null)
 
 interface SheetContentProps
   extends React.ComponentPropsWithoutRef<typeof SheetPrimitive.Content>,
@@ -68,7 +70,7 @@ const SheetContent = React.forwardRef<
   const [descriptionId, setDescriptionId] = React.useState<string | undefined>()
 
   return (
-    <SheetContext.Provider value={{ titleId, descriptionId }}>
+    <SheetContext.Provider value={{ titleId, setTitleId, descriptionId, setDescriptionId }}>
       <SheetPortal>
         <SheetOverlay />
         <SheetPrimitive.Content
@@ -78,15 +80,7 @@ const SheetContent = React.forwardRef<
           className={cn(sheetVariants({ side }), className)}
           {...props}
         >
-          {React.Children.map(children, (child) =>
-            React.isValidElement(child)
-              ? React.cloneElement(child, {
-                  ...child.props,
-                  onTitleMount: (id: string) => setTitleId(id),
-                  onDescriptionMount: (id: string) => setDescriptionId(id),
-                } as React.HTMLAttributes<HTMLElement>)
-              : child
-          )}
+          {children}
           <SheetPrimitive.Close className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-secondary">
             <X className="h-4 w-4" />
             <span className="sr-only">Close</span>
@@ -128,12 +122,13 @@ SheetFooter.displayName = "SheetFooter"
 
 const SheetTitle = React.forwardRef<
   React.ElementRef<typeof SheetPrimitive.Title>,
-  React.ComponentPropsWithoutRef<typeof SheetPrimitive.Title> & { onTitleMount?: (id: string) => void }
->(({ className, onTitleMount, ...props }, ref) => {
+  React.ComponentPropsWithoutRef<typeof SheetPrimitive.Title>
+>(({ className, ...props }, ref) => {
   const id = React.useId()
+  const context = React.useContext(SheetContext)
   React.useEffect(() => {
-    onTitleMount?.(id)
-  }, [id, onTitleMount])
+    context?.setTitleId(id)
+  }, [id, context])
 
   return (
     <SheetPrimitive.Title
@@ -148,12 +143,13 @@ SheetTitle.displayName = SheetPrimitive.Title.displayName
 
 const SheetDescription = React.forwardRef<
   React.ElementRef<typeof SheetPrimitive.Description>,
-  React.ComponentPropsWithoutRef<typeof SheetPrimitive.Description> & { onDescriptionMount?: (id: string) => void }
->(({ className, onDescriptionMount, ...props }, ref) => {
+  React.ComponentPropsWithoutRef<typeof SheetPrimitive.Description>
+>(({ className, ...props }, ref) => {
   const id = React.useId()
+  const context = React.useContext(SheetContext)
   React.useEffect(() => {
-    onDescriptionMount?.(id)
-  }, [id, onDescriptionMount])
+    context?.setDescriptionId(id)
+  }, [id, context])
 
   return (
     <SheetPrimitive.Description
