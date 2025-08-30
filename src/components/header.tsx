@@ -13,6 +13,7 @@ const navLinks = [
   { name: 'Our Story', href: '/story' },
   { name: 'Store Locator', href: '/store-locator' },
   { name: "Investor's opportunity", href: '/investors' },
+  { name: 'Contact us', href: '/contact' },
 ];
 
 export function Header() {

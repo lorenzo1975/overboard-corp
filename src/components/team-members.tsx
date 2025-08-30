@@ -3,57 +3,57 @@ import { Card, CardContent } from '@/components/ui/card';
 
 const teamMembers = [
   {
-    name: 'Alex "Captain" Jensen',
-    role: 'Founder & CEO',
-    avatar: '/images/team/Alex-artwork.png',
+    name: 'Bee @naiharn store',
+    role: 'The Column of Nai Harn',
+    avatar: '/images/team/Bee-artwork.png',
     aiHint: 'male portrait professional'
   },
   {
-    name: 'Ben "The Maverick" Carter',
-    role: 'Head of Operations',
-    avatar: '/images/team/Ben-artwork.png',
+    name: 'Na @sayuan store ',
+    role: 'Nothing gets unoticed',
+    avatar: '/images/team/Na-artwork.png',
     aiHint: 'male portrait smiling'
   },
   {
-    name: 'Chloe "Starlight" Davis',
-    role: 'Chief Marketing Officer',
-    avatar: '/images/team/Chloe-artwork.png',
+    name: 'Gif @bangato store',
+    role: 'As usually friendly',
+    avatar: '/images/team/Gif-artwork.png',
     aiHint: 'female portrait professional'
   },
   {
-    name: 'David "The Navigator" Chen',
-    role: 'Head of Expansion',
-    avatar: '/images/team/David-artwork.png',
+    name: 'The Boss #1',
+    role: 'Relentless worker',
+    avatar: '/images/team/Koy-artwork.png',
     aiHint: 'male portrait serious'
   },
   {
     name: 'Eva "The Anchor" Rostova',
     role: 'Chief Financial Officer',
-    avatar: '/images/team/Eva-artwork.png',
+    avatar: '/images/team/Ploy-artwork.png',
     aiHint: 'female portrait finance'
   },
   {
     name: 'Frank "The Fin" Miller',
     role: 'Head of Product',
-    avatar: '/images/team/Frank-artwork.png',
+    avatar: '/images/team/Mai-artwork.png',
     aiHint: 'male portrait product'
   },
   {
     name: 'Grace "The Current" Lee',
     role: 'Community Manager',
-    avatar: '/images/team/Grace-artwork.png',
+    avatar: '/images/team/Lorenzo-artwork.png',
     aiHint: 'female portrait community'
   },
   {
     name: 'Henry "The Helm" Wong',
     role: 'Lead Retail Strategist',
-    avatar: '/images/team/Henry-artwork.png',
+    avatar: '/images/team/Jukkro-artwork.png',
     aiHint: 'male portrait retail'
   },
   {
     name: 'Isla "The Tide" Garcia',
     role: 'Creative Director',
-    avatar: '/images/team/Isla-artwork.png',
+    avatar: '/images/team/Benz-artwork.png',
     aiHint: 'female portrait creative'
   },
   {
