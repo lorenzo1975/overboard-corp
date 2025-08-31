@@ -1,21 +1,28 @@
 import { cn } from "@/lib/utils";
+import Image from "next/image";
 
 const brands = [
-  { name: "Quiksilver" },
-  { name: "Billabong" },
-  { name: "Roxy" },
-  { name: "Rip Curl" },
-  { name: "O'Neill" },
-  { name: "Patagonia" },
-  { name: "GoPro" },
-  { name: "Oakley" },
-  { name: "Hurley" },
-  { name: "Vissla" },
+  { name: "Quiksilver", logo: "/logos/quiksilver.svg" },
+  { name: "Billabong", logo: "/logos/billabong.svg" },
+  { name: "Roxy", logo: "/logos/roxy.svg" },
+  { name: "Rip Curl", logo: "/logos/ripcurl.svg" },
+  { name: "O'Neill", logo: "/logos/oneill.svg" },
+  { name: "Patagonia", logo: "/logos/patagonia.svg" },
+  { name: "GoPro", logo: "/logos/gopro.svg" },
+  { name: "Oakley", logo: "/logos/oakley.svg" },
+  { name: "Hurley", logo: "/logos/hurley.svg" },
+  { name: "Vissla", logo: "/logos/vissla.svg" },
 ];
 
-const Brand = ({ name }: { name: string }) => (
-  <li className="flex items-center justify-center text-xl font-bold text-muted-foreground whitespace-nowrap mx-8">
-    {name}
+const Brand = ({ name, logo }: { name: string, logo: string }) => (
+  <li className="flex items-center justify-center mx-8">
+    <Image 
+      src={logo} 
+      alt={`${name} logo`}
+      width={120}
+      height={40}
+      className="object-contain"
+    />
   </li>
 );
 
@@ -33,12 +40,12 @@ export function BrandStrip() {
         >
           <div className="animate-marquee group-hover:paused flex">
             {brands.map((brand) => (
-              <Brand key={brand.name} name={brand.name} />
+              <Brand key={brand.name} name={brand.name} logo={brand.logo} />
             ))}
           </div>
           <div className="animate-marquee-continuation group-hover:paused flex absolute top-0">
              {brands.map((brand) => (
-              <Brand key={`${brand.name}-2`} name={brand.name} />
+              <Brand key={`${brand.name}-2`} name={brand.name} logo={brand.logo} />
             ))}
           </div>
         </div>
