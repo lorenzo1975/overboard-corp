@@ -2,6 +2,8 @@ import { Header } from '@/components/header';
 import { Footer } from '@/components/footer';
 import { TeamIntro } from '@/components/team-intro';
 import { TeamMembers } from '@/components/team-members';
+import { JobVacancies } from '@/components/job-vacancies';
+import { Separator } from '@/components/ui/separator';
 
 export default function TeamPage() {
   return (
@@ -15,6 +17,8 @@ export default function TeamPage() {
         </div>
         <TeamIntro />
         <TeamMembers />
+        <Separator className="my-16" />
+        <JobVacancies />
       </main>
       <Footer />
     </div>

@@ -7,42 +7,42 @@ const stores = [
     name: 'Overboard Phuket - Laguna Beach',
     location: 'Phuket, Thailand',
     fact: 'Top Performing Location',
-    image: 'https://picsum.photos/600/400',
+    image: '/images/destinations/Bangtao.jpg',
     aiHint: 'beachfront store phuket'
   },
   {
     name: 'Overboard Koh Samui - Chaweng',
     location: 'Koh Samui, Thailand',
     fact: 'Highest Rental Revenue',
-    image: 'https://picsum.photos/600/400',
+    image: '/images/destinations/Karon.jpg',
     aiHint: 'beach shop samui'
   },
   {
     name: 'Overboard Pattaya - Jomtien',
     location: 'Pattaya, Thailand',
     fact: 'Newest Flagship',
-    image: 'https://picsum.photos/600/400',
+    image: '/images/destinations/Bangtao.jpg',
     aiHint: 'modern retail pattaya'
   },
   {
     name: 'Overboard Hua Hin - Main Strip',
     location: 'Hua Hin, Thailand',
     fact: 'Community Hub',
-    image: 'https://picsum.photos/600/400',
+    image: '/images/destinations/hua-hin.jpg',
     aiHint: 'watersports shop huahin'
   },
   {
     name: 'Overboard Krabi - Ao Nang',
     location: 'Krabi, Thailand',
     fact: 'Best Customer Ratings',
-    image: 'https://picsum.photos/600/400',
+    image: '/images/destinations/Rawai.jpg',
     aiHint: 'surf store krabi'
   },
   {
     name: 'Overboard Bangkok - Central',
     location: 'Bangkok, Thailand',
     fact: 'Urban Concept Store',
-    image: 'https://picsum.photos/600/400',
+    image: '/images/destinations/Krabi .jpg',
     aiHint: 'city retail bangkok'
   },
 ];
