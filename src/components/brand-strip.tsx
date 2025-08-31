@@ -42,7 +42,7 @@ const Brand = ({ name, logo, invert, component }: { name: string; logo: string; 
         alt={`${name} logo`}
         width={120}
         height={40}
-        className={cn("object-contain", invert && "dark:invert")}
+        className={cn("object-contain h-10 w-auto", invert && "dark:invert")}
         />
     )}
   </li>
