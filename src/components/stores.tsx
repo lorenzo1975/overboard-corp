@@ -52,7 +52,7 @@ export function Stores() {
     <section id="stores" className="py-16 sm:py-24 bg-secondary">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center">
-          <h3 className="text-base font-semibold uppercase tracking-wider text-accent">Our Proven Footprint</h3>
+          <h3 className="text-base font-semibold uppercase tracking-wider text-accent">Unique Thailand Destinations</h3>
           <h2 className="mt-2 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl font-headline">Six Thriving Locations Across Thailand's Top Destinations</h2>
         </div>
         <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
