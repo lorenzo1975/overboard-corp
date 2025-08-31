@@ -2,16 +2,15 @@ import { cn } from "@/lib/utils";
 import Image from "next/image";
 
 const brands = [
-  { name: "Quiksilver", logo: "/logos/quiksilver.svg" },
-  { name: "Billabong", logo: "/logos/billabong.svg" },
-  { name: "Roxy", logo: "/logos/roxy.svg" },
-  { name: "Rip Curl", logo: "/logos/ripcurl.svg" },
-  { name: "O'Neill", logo: "/logos/oneill.svg" },
-  { name: "Patagonia", logo: "/logos/patagonia.svg" },
-  { name: "GoPro", logo: "/logos/gopro.svg" },
-  { name: "Oakley", logo: "/logos/oakley.svg" },
-  { name: "Hurley", logo: "/logos/hurley.svg" },
-  { name: "Vissla", logo: "/logos/vissla.svg" },
+  { name: "Quiksilver", logo: "/images/logos/quiksilver.svg" },
+  { name: "Roxy", logo: "/images/logos/roxy.svg" },
+  { name: "Rip Curl", logo: "/images/logos/ripcurl.svg" },
+  { name: "O'Neill", logo: "/images/logos/oneill.svg" },
+  { name: "69Slam", logo: "/images/logos/69Slam.svg" },
+  { name: "Havaianas", logo: "/images/logos/havaianas.svg" },
+  { name: "Overboard", logo: "/images/logos/overboard.svg" },
+
+
 ];
 
 const Brand = ({ name, logo }: { name: string, logo: string }) => (
@@ -21,7 +20,7 @@ const Brand = ({ name, logo }: { name: string, logo: string }) => (
       alt={`${name} logo`}
       width={120}
       height={40}
-      className="object-contain"
+      className="object-contain dark:invert"
     />
   </li>
 );
