@@ -6,6 +6,7 @@ import { Stores } from '@/components/stores';
 import { GrowthStrategy } from '@/components/growth-strategy';
 import { InvestorCTA } from '@/components/investor-cta';
 import { Footer } from '@/components/footer';
+import { BrandStrip } from '@/components/brand-strip';
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
         <Stores />
         <GrowthStrategy />
         <InvestorCTA />
+        <BrandStrip />
       </main>
       <Footer />
     </div>

@@ -5,55 +5,55 @@ const teamMembers = [
   {
     name: 'Bee @naiharn store',
     role: 'The Column of Nai Harn',
-    avatar: '/images/team/Bee-artwork.png',
+    avatar: '/images/team/Bee.jpg',
     aiHint: 'male portrait professional'
   },
   {
     name: 'Na @sayuan store ',
     role: 'Nothing gets unoticed',
-    avatar: '/images/team/Na-artwork.png',
+    avatar: '/images/team/Na.jpg',
     aiHint: 'male portrait smiling'
   },
   {
     name: 'Gif @bangato store',
     role: 'As usually friendly',
-    avatar: '/images/team/Gif-artwork.png',
+    avatar: '/images/team/Gif.jpg',
     aiHint: 'female portrait professional'
   },
   {
     name: 'The Boss #1',
     role: 'Relentless worker',
-    avatar: '/images/team/Koy-artwork.png',
+    avatar: '/images/team/Koy.jpg',
     aiHint: 'male portrait serious'
   },
   {
-    name: 'Eva "The Anchor" Rostova',
+    name: 'Ploy @bangtao store',
     role: 'Chief Financial Officer',
-    avatar: '/images/team/Ploy-artwork.png',
+    avatar: '/images/team/Ploy.jpg',
     aiHint: 'female portrait finance'
   },
   {
-    name: 'Frank "The Fin" Miller',
+    name: 'May @Ao Nang store',
     role: 'Head of Product',
-    avatar: '/images/team/Mai-artwork.png',
+    avatar: '/images/team/Mai.jpg',
     aiHint: 'male portrait product'
   },
   {
     name: 'Grace "The Current" Lee',
     role: 'Community Manager',
-    avatar: '/images/team/Lorenzo-artwork.png',
+    avatar: '/images/team/Lorenzo.jpg',
     aiHint: 'female portrait community'
   },
   {
     name: 'Henry "The Helm" Wong',
     role: 'Lead Retail Strategist',
-    avatar: '/images/team/Jukkro-artwork.png',
+    avatar: '/images/team/Jukkro.jpg',
     aiHint: 'male portrait retail'
   },
   {
     name: 'Isla "The Tide" Garcia',
     role: 'Creative Director',
-    avatar: '/images/team/Benz-artwork.png',
+    avatar: '/images/team/Benz.jpg',
     aiHint: 'female portrait creative'
   },
   {
