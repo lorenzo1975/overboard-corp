@@ -4,22 +4,41 @@ import Image from "next/image";
 const brands = [
     { name: "Quiksilver", logo: "/images/logos/quiksilver.svg", invert: true },
     { name: "Roxy", logo: "/images/logos/roxy.svg", invert: true },
-    { name: "Rip Curl", logo: "/images/logos/ripcurl.svg", invert: false },
+    { name: "Rip Curl", logo: "/images/logos/ripcurl.svg", darkLogo: "/images/logos/ripcurl-w.svg" },
     { name: "O'Neill", logo: "/images/logos/oneill.svg", invert: true },
     { name: "69Slam", logo: "/images/logos/69Slam.svg", invert: true },
-    { name: "Havaianas", logo: "/images/logos/havaianas.svg", invert: false },
-    { name: "Overboard", logo: "/images/logos/overboard.svg", invert: false },
+    { name: "Havaianas", logo: "/images/logos/havaianas.svg" },
+    { name: "Overboard", logo: "/images/logos/overboard.svg" },
 ];
 
-const Brand = ({ name, logo, invert }: { name: string; logo: string; invert: boolean; }) => (
+const Brand = ({ name, logo, invert, darkLogo }: { name: string; logo: string; invert?: boolean; darkLogo?: string; }) => (
   <li className="flex items-center justify-center mx-8">
-    <Image
-      src={logo}
-      alt={`${name} logo`}
-      width={120}
-      height={40}
-      className={cn("object-contain h-10 w-auto", invert && "dark:invert")}
-    />
+    {darkLogo ? (
+      <>
+        <Image
+          src={logo}
+          alt={`${name} logo`}
+          width={120}
+          height={40}
+          className={cn("object-contain dark:hidden")}
+        />
+        <Image
+          src={darkLogo}
+          alt={`${name} logo dark mode`}
+          width={120}
+          height={40}
+          className={cn("object-contain hidden dark:block")}
+        />
+      </>
+    ) : (
+       <Image
+        src={logo}
+        alt={`${name} logo`}
+        width={120}
+        height={40}
+        className={cn("object-contain", invert && "dark:invert")}
+      />
+    )}
   </li>
 );
 
