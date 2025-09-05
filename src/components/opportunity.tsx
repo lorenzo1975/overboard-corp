@@ -19,7 +19,7 @@ export function Opportunity() {
           </div>
           <div className="order-1 md:order-2">
             <Image
-              src="https://picsum.photos/800/600"
+              src="/images/business-profile-img-1.jpg"
               alt="Customers enjoying water sports products"
               width={800}
               height={600}

@@ -4,61 +4,61 @@ import { Card, CardContent } from '@/components/ui/card';
 const teamMembers = [
   {
     name: 'Bee @naiharn store',
-    role: 'The Column of Nai Harn',
+    role: 'Nai Harn Store Manager',
     avatar: '/images/team/Bee.jpg',
-    aiHint: 'male portrait professional'
+    aiHint: 'female portrait sales assistant'
   },
   {
     name: 'Na @sayuan store ',
-    role: 'Nothing gets unoticed',
+    role: 'Sales Manager Sayuan Store',
     avatar: '/images/team/Na.jpg',
     aiHint: 'male portrait smiling'
   },
   {
     name: 'Gif @bangato store',
-    role: 'As usually friendly',
+    role: 'Sales Manager Bangtao',
     avatar: '/images/team/Gif.jpg',
-    aiHint: 'female portrait professional'
+    aiHint: 'female portrait sales assistant'
   },
   {
-    name: 'The Boss #1',
-    role: 'Relentless worker',
+    name: 'Koy The Boss #1',
+    role: 'Company Director',
     avatar: '/images/team/Koy.jpg',
-    aiHint: 'male portrait serious'
+    aiHint: 'female portrait company director'
   },
   {
     name: 'Ploy @bangtao store',
-    role: 'Chief Financial Officer',
+    role: 'Sales Manager',
     avatar: '/images/team/Ploy.jpg',
     aiHint: 'female portrait finance'
   },
   {
     name: 'May @Ao Nang store',
-    role: 'Head of Product',
+    role: 'Sales Manager Ao Nang.',
     avatar: '/images/team/Mai.jpg',
-    aiHint: 'male portrait product'
+    aiHint: 'female portrait product'
   },
   {
-    name: 'Grace "The Current" Lee',
-    role: 'Community Manager',
+    name: 'Lorenzo The Boss #2',
+    role: 'Company Co-director',
     avatar: '/images/team/Lorenzo.jpg',
-    aiHint: 'female portrait community'
+    aiHint: 'male portrait community'
   },
   {
-    name: 'Henry "The Helm" Wong',
-    role: 'Lead Retail Strategist',
+    name: 'Jukko @karonstore',
+    role: 'Sales Manager',
     avatar: '/images/team/Jukkro.jpg',
     aiHint: 'male portrait retail'
   },
   {
-    name: 'Isla "The Tide" Garcia',
-    role: 'Creative Director',
+    name: 'Benz @karonstore',
+    role: 'Sales Manager',
     avatar: '/images/team/Benz.jpg',
     aiHint: 'female portrait creative'
   },
   {
-    name: 'Bee "The Jetty" Kim',
-    role: 'Logistics Coordinator',
+    name: 'Panda @karonstore',
+    role: 'Security Guard Dog',
     avatar: '/images/team/Panda.jpg',
     aiHint: 'male portrait logistics'
   },

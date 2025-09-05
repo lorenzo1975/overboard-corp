@@ -4,24 +4,24 @@ import { Badge } from '@/components/ui/badge';
 
 const stores = [
   {
-    name: 'Overboard Phuket - Laguna Beach',
+    name: 'Overboard Bangtao - Laguna Beach',
     location: 'Phuket, Thailand',
     fact: 'Top Performing Location',
     image: '/images/destinations/Bangtao.jpg',
     aiHint: 'beachfront store phuket'
   },
   {
-    name: 'Overboard Koh Samui - Chaweng',
-    location: 'Koh Samui, Thailand',
+    name: 'Overboard Karon - Phuket',
+    location: 'Phuket, Thailand',
     fact: 'Highest Rental Revenue',
     image: '/images/destinations/Karon.jpg',
     aiHint: 'beach shop samui'
   },
   {
-    name: 'Overboard Pattaya - Jomtien',
-    location: 'Pattaya, Thailand',
+    name: 'Overboard Nai Harn - Phuket',
+    location: 'Phuket, Thailand',
     fact: 'Newest Flagship',
-    image: '/images/destinations/Bangtao.jpg',
+    image: '/images/destinations/nai-harn.jpg',
     aiHint: 'modern retail pattaya'
   },
   {
@@ -32,17 +32,17 @@ const stores = [
     aiHint: 'watersports shop huahin'
   },
   {
-    name: 'Overboard Krabi - Ao Nang',
-    location: 'Krabi, Thailand',
+    name: 'O Neill Rawai - Phuket',
+    location: 'Phuket, Thailand',
     fact: 'Best Customer Ratings',
     image: '/images/destinations/Rawai.jpg',
     aiHint: 'surf store krabi'
   },
   {
-    name: 'Overboard Bangkok - Central',
-    location: 'Bangkok, Thailand',
+    name: 'Overboard Krabi',
+    location: 'Ao Nang, Krabi Thailand',
     fact: 'Urban Concept Store',
-    image: '/images/destinations/Krabi .jpg',
+    image: '/images/destinations/Krabi.jpg',
     aiHint: 'city retail bangkok'
   },
 ];

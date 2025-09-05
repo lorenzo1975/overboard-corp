@@ -11,7 +11,7 @@ export function Footer() {
           <div className="space-y-4">
             <Logo />
             <p className="text-sm text-primary-foreground/80">
-              Pioneering the premier water sports lifestyle experience in Southeast Asia.
+              Pioneering the premier beachwear lifestyle experience in Southeast Asia.
             </p>
           </div>
           <div>
@@ -27,7 +27,7 @@ export function Footer() {
             <ul className="mt-4 space-y-2">
               <li className="flex items-center gap-2">
                 <Mail className="h-4 w-4" />
-                <a href="mailto:invest@overboard.asia" className="text-sm text-primary-foreground/80 hover:text-primary-foreground">invest@overboard.asia</a>
+                <a href="mailto:info@overboard.co.th" className="text-sm text-primary-foreground/80 hover:text-primary-foreground">info@overboard.co.th</a>
               </li>
               <li className="flex items-center gap-2">
                 <Phone className="h-4 w-4" />
@@ -38,7 +38,7 @@ export function Footer() {
           <div>
             <h3 className="font-semibold uppercase tracking-wider">Follow Us</h3>
             <div className="mt-4 flex space-x-4">
-              <Link href="#" aria-label="LinkedIn">
+              <Link href="/store-locator" aria-label="LinkedIn">
                 <Linkedin className="h-6 w-6 text-primary-foreground/80 hover:text-primary-foreground" />
               </Link>
             </div>
@@ -46,7 +46,7 @@ export function Footer() {
         </div>
         <Separator className="my-8 bg-primary-foreground/20" />
         <div className="text-center text-xs text-primary-foreground/60">
-          <p>© 2025 Overboard Co., Ltd. All Rights Reserved.</p>
+          <p>© {new Date().getFullYear()} Overboard Co., Ltd. All Rights Reserved.</p>
           <p className="mt-2">This website is for informational purposes only and does not constitute an offer to sell or a solicitation of an offer to buy any security.</p>
         </div>
       </div>

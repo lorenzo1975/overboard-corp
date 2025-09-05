@@ -18,7 +18,7 @@ export function Hero() {
           />
           <div className="absolute inset-0 bg-black/30"></div>
           <div className="relative z-10 text-center px-4">
-            <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl font-headline" style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.7)' }}>
+            <h1 className="text-2xl font-extrabold tracking-tight sm:text-3xl md:text-4xl lg:text-5xl font-headline" style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.7)' }}>
               Thailand's Premier Water Sports Retailer: A Proven Model for Expansion
             </h1>
             <p className="mt-6 max-w-3xl mx-auto text-lg text-white sm:text-xl" style={{ textShadow: '1px 1px 4px rgba(0,0,0,0.8)' }}>
