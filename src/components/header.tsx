@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import { Sheet, SheetContent, SheetTrigger, SheetTitle, SheetDescription } from '@/components/ui/sheet';
 import { Logo } from '@/components/logo';
 import { Menu, X } from 'lucide-react';
 import { ModeToggle } from '@/components/mode-toggle';
@@ -47,6 +47,8 @@ export function Header() {
               </Button>
             </SheetTrigger>
             <SheetContent side="right" className="w-[300px] sm:w-[400px]">
+                <SheetTitle className="sr-only">Mobile Menu</SheetTitle>
+                <SheetDescription className="sr-only">Main navigation links for mobile.</SheetDescription>
               <div className="flex h-full flex-col">
                 <div className="flex items-center justify-between border-b p-4">
                   <Link href="/" onClick={() => setIsMenuOpen(false)}>
