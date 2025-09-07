@@ -47,8 +47,8 @@ export function Header() {
               </Button>
             </SheetTrigger>
             <SheetContent side="right" className="w-[300px] sm:w-[400px]">
-                <SheetTitle className="sr-only">Mobile Menu</SheetTitle>
-                <SheetDescription className="sr-only">Main navigation links for mobile.</SheetDescription>
+              <SheetTitle className="sr-only">Mobile Menu</SheetTitle>
+              <SheetDescription className="sr-only">Main navigation links for mobile.</SheetDescription>
               <div className="flex h-full flex-col">
                 <div className="flex items-center justify-between border-b p-4">
                   <Link href="/" onClick={() => setIsMenuOpen(false)}>

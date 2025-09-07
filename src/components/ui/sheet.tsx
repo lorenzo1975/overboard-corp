@@ -49,15 +49,6 @@ const sheetVariants = cva(
   }
 )
 
-type SheetContextValue = {
-  titleId?: string
-  setTitleId: (id: string) => void
-  descriptionId?: string
-  setDescriptionId: (id: string) => void
-}
-
-const SheetContext = React.createContext<SheetContextValue | null>(null)
-
 interface SheetContentProps
   extends React.ComponentPropsWithoutRef<typeof SheetPrimitive.Content>,
     VariantProps<typeof sheetVariants> {}
@@ -65,31 +56,22 @@ interface SheetContentProps
 const SheetContent = React.forwardRef<
   React.ElementRef<typeof SheetPrimitive.Content>,
   SheetContentProps
->(({ side = "right", className, children, ...props }, ref) => {
-  const [titleId, setTitleId] = React.useState<string | undefined>()
-  const [descriptionId, setDescriptionId] = React.useState<string | undefined>()
-
-  return (
-    <SheetContext.Provider value={{ titleId, setTitleId, descriptionId, setDescriptionId }}>
-      <SheetPortal>
-        <SheetOverlay />
-        <SheetPrimitive.Content
-          ref={ref}
-          aria-labelledby={titleId}
-          aria-describedby={descriptionId}
-          className={cn(sheetVariants({ side }), className)}
-          {...props}
-        >
-          {children}
-          <SheetPrimitive.Close className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-secondary">
-            <X className="h-4 w-4" />
-            <span className="sr-only">Close</span>
-          </SheetPrimitive.Close>
-        </SheetPrimitive.Content>
-      </SheetPortal>
-    </SheetContext.Provider>
-  )
-})
+>(({ side = "right", className, children, ...props }, ref) => (
+  <SheetPortal>
+    <SheetOverlay />
+    <SheetPrimitive.Content
+      ref={ref}
+      className={cn(sheetVariants({ side }), className)}
+      {...props}
+    >
+      {children}
+      <SheetPrimitive.Close className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-secondary">
+        <X className="h-4 w-4" />
+        <span className="sr-only">Close</span>
+      </SheetPrimitive.Close>
+    </SheetPrimitive.Content>
+  </SheetPortal>
+))
 SheetContent.displayName = SheetPrimitive.Content.displayName
 
 const SheetHeader = ({
@@ -123,43 +105,25 @@ SheetFooter.displayName = "SheetFooter"
 const SheetTitle = React.forwardRef<
   React.ElementRef<typeof SheetPrimitive.Title>,
   React.ComponentPropsWithoutRef<typeof SheetPrimitive.Title>
->(({ className, ...props }, ref) => {
-  const id = React.useId()
-  const context = React.useContext(SheetContext)
-  React.useEffect(() => {
-    context?.setTitleId(id)
-  }, [id, context])
-
-  return (
-    <SheetPrimitive.Title
-      ref={ref}
-      id={id}
-      className={cn("text-lg font-semibold text-foreground", className)}
-      {...props}
-    />
-  )
-})
+>(({ className, ...props }, ref) => (
+  <SheetPrimitive.Title
+    ref={ref}
+    className={cn("text-lg font-semibold text-foreground", className)}
+    {...props}
+  />
+))
 SheetTitle.displayName = SheetPrimitive.Title.displayName
 
 const SheetDescription = React.forwardRef<
   React.ElementRef<typeof SheetPrimitive.Description>,
   React.ComponentPropsWithoutRef<typeof SheetPrimitive.Description>
->(({ className, ...props }, ref) => {
-  const id = React.useId()
-  const context = React.useContext(SheetContext)
-  React.useEffect(() => {
-    context?.setDescriptionId(id)
-  }, [id, context])
-
-  return (
-    <SheetPrimitive.Description
-      ref={ref}
-      id={id}
-      className={cn("text-sm text-muted-foreground", className)}
-      {...props}
-    />
-  )
-})
+>(({ className, ...props }, ref) => (
+  <SheetPrimitive.Description
+    ref={ref}
+    className={cn("text-sm text-muted-foreground", className)}
+    {...props}
+  />
+))
 SheetDescription.displayName = SheetPrimitive.Description.displayName
 
 export {
