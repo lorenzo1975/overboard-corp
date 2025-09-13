@@ -6,7 +6,7 @@ export function Hero() {
   return (
     <section className="py-16 sm:py-24">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="reve h-[60vh] min-h-[500px] w-full flex items-center justify-center text-white rounded-xl overflow-hidden shadow-2xl">
+        <div className="relative h-[60vh] min-h-[500px] w-full flex items-center justify-center text-white rounded-xl overflow-hidden shadow-2xl">
           <Image
             src="/images/hero.jpg"
             alt="A powerful ocean wave"
