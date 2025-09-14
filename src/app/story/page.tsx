@@ -18,7 +18,7 @@ const timelineEvents = [
     title: "Riding the Wave of Expansion",
     description:
       "The response was incredible. Fueled by our early success, we expanded our horizons by opening four more mono-brand stores. We proudly partnered with iconic brands like Havaianas, Quiksilver, and Roxy, each new location bringing us closer to our goal of creating a comprehensive lifestyle destination for beach lovers.",
-    image: "/images/our-story/our-story-2.png",
+    image: "/images/our-story/our-story-3.png",
     aiHint: "surfboard shop interior",
   },
   {
@@ -26,7 +26,7 @@ const timelineEvents = [
     title: "Pivoting in the Face of a Pandemic",
     description:
       "When the world changed with the COVID-19 pandemic, so did we. It was a challenging time, but it sparked our biggest evolution. We pivoted from single-brand shops to creating large, immersive multi-brand stores. This allowed us to offer a richer, more diverse selection and focus on creating a truly personalized shopping experience for every customer.",
-    image: "/images/our-story/our-story-3.png",
+    image: "/images/our-story/our-story-2.png",
     aiHint: "retail store design",
   },
   {
