@@ -3,6 +3,11 @@ import { Footer } from "@/components/footer";
 import Image from "next/image";
 import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Our Story | Overboard',
+};
 
 const timelineEvents = [
   {

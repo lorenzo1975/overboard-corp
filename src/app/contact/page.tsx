@@ -1,6 +1,12 @@
 import { Header } from '@/components/header';
 import { Footer } from '@/components/footer';
 import { ContactForm } from '@/components/contact-form';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Contact Us | Overboard',
+};
+
 
 export default function ContactPage() {
   return (

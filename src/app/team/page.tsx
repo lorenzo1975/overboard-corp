@@ -4,6 +4,11 @@ import { TeamIntro } from '@/components/team-intro';
 import { TeamMembers } from '@/components/team-members';
 import { JobVacancies } from '@/components/job-vacancies';
 import { Separator } from '@/components/ui/separator';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'The Team | Overboard',
+};
 
 export default function TeamPage() {
   return (

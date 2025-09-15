@@ -3,6 +3,11 @@ import { Footer } from '@/components/footer';
 import { InvestorCTA } from '@/components/investor-cta';
 import { Opportunity } from '@/components/opportunity';
 import { GrowthStrategy } from '@/components/growth-strategy';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: "Investor's Opportunity | Overboard",
+};
 
 export default function InvestorsPage() {
   return (

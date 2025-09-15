@@ -25,8 +25,8 @@ export function Hero() {
             From six profitable stores in key destinations, we offer a curated selection of top international brands alongside our exclusive in-house styles. We are now seeking partners to scale this success across Southeast Asia.
             </p>
             <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Button size="lg" className="w-full sm:w-auto bg-accent text-accent-foreground hover:bg-accent/90">
-                Download Investor Deck
+              <Button size="lg" asChild className="w-full sm:w-auto bg-accent text-accent-foreground hover:bg-accent/90">
+                <a href="/investor-deck.pdf" download>Download Investor Deck</a>
               </Button>
               <Button size="lg" variant="link" asChild className="text-white w-full sm:w-auto font-bold" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.5)' }}>
                 <Link href="#contact">Contact Us &rarr;</Link>
