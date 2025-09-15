@@ -17,3 +17,4 @@ runConfig:
 buildConfig:
   buildVars:
     NEXT_PUBLIC_GOOGLE_MAPS_API_KEY: ''
+    NEXT_PUBLIC_GA_MEASUREMENT_ID: ''
