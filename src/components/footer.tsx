@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { Logo } from '@/components/logo';
 import { Separator } from '@/components/ui/separator';
-import { Mail, Phone, Linkedin } from 'lucide-react';
+import { Mail, Phone, Linkedin, Facebook, Instagram } from 'lucide-react';
 
 export function Footer() {
   return (
@@ -17,9 +17,9 @@ export function Footer() {
           <div>
             <h3 className="font-semibold uppercase tracking-wider">Links</h3>
             <ul className="mt-4 space-y-2">
-              <li><Link href="#" className="text-sm text-primary-foreground/80 hover:text-primary-foreground">About Us</Link></li>
-              <li><Link href="#stores" className="text-sm text-primary-foreground/80 hover:text-primary-foreground">Our Stores</Link></li>
-              <li><Link href="#" className="text-sm text-primary-foreground/80 hover:text-primary-foreground">Careers</Link></li>
+              <li><Link href="/contact" className="text-sm text-primary-foreground/80 hover:text-primary-foreground">About Us</Link></li>
+              <li><Link href="/store-locator" className="text-sm text-primary-foreground/80 hover:text-primary-foreground">Our Stores</Link></li>
+              <li><Link href="/team" className="text-sm text-primary-foreground/80 hover:text-primary-foreground">Careers</Link></li>
             </ul>
           </div>
           <div>
@@ -31,15 +31,21 @@ export function Footer() {
               </li>
               <li className="flex items-center gap-2">
                 <Phone className="h-4 w-4" />
-                <span className="text-sm text-primary-foreground/80">+66 XX XXX XXXX</span>
+                <span className="text-sm text-primary-foreground/80">+66 848-44-5742</span>
               </li>
             </ul>
           </div>
           <div>
             <h3 className="font-semibold uppercase tracking-wider">Follow Us</h3>
             <div className="mt-4 flex space-x-4">
-              <Link href="/store-locator" aria-label="LinkedIn">
+              <Link href="https://www.linkedin.com/in/lorenzobeltrame/" aria-label="LinkedIn" target="_blank">
                 <Linkedin className="h-6 w-6 text-primary-foreground/80 hover:text-primary-foreground" />
+              </Link>
+              <Link href="https://www.facebook.com/OverboardThailand/" aria-label="Facebook" target="_blank">
+                <Facebook className="h-6 w-6 text-primary-foreground/80 hover:text-primary-foreground" />
+              </Link>
+              <Link href="https://www.instagram.com/overboardthailand/" aria-label="Instagram" target="_blank">
+                <Instagram className="h-6 w-6 text-primary-foreground/80 hover:text-primary-foreground" />
               </Link>
             </div>
           </div>
