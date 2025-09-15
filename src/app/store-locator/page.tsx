@@ -7,12 +7,9 @@ import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
 import { StoreMap } from '@/components/store-map';
 import { useState } from 'react';
-import type { Metadata } from 'next';
+import Head from 'next/head';
 
-// Note: `metadata` is not used on client components, but can be exported
-// export const metadata: Metadata = {
-//   title: 'Store Locator | Overboard',
-// };
+// Note: Client components can't export `metadata`. We use `next/head` for title and description.
 
 export default function StoreLocatorPage() {
   const [activeStore, setActiveStore] = useState<(typeof stores)[0] | null>(null);
@@ -75,6 +72,11 @@ export default function StoreLocatorPage() {
   ];
 
   return (
+    <>
+    <Head>
+        <title>Store Locator | Overboard Asia</title>
+        <meta name="description" content="Find all Overboard Asia store locations across Thailand, including Phuket, Hua Hin, and Krabi. Get addresses and directions to your nearest water sports retailer." />
+    </Head>
     <div className="flex min-h-screen flex-col bg-background">
       <Header />
       <main className="flex-1 container mx-auto px-4 py-12 sm:px-6 lg:px-8">
@@ -117,5 +119,6 @@ export default function StoreLocatorPage() {
       </main>
       <Footer />
     </div>
+    </>
   );
 }

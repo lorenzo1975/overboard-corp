@@ -7,6 +7,12 @@ import { GrowthStrategy } from '@/components/growth-strategy';
 import { InvestorCTA } from '@/components/investor-cta';
 import { Footer } from '@/components/footer';
 import { BrandStrip } from '@/components/brand-strip';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Overboard Asia: Premier Water Sports Retailer & Investment Opportunity',
+  description: "Discover Overboard Asia, Thailand's leading water sports retailer with 6 profitable stores. Explore our successful business model and investment opportunities for expansion across Southeast Asia.",
+};
 
 export default function Home() {
   return (

@@ -6,7 +6,8 @@ import { GrowthStrategy } from '@/components/growth-strategy';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "Investor's Opportunity | Overboard",
+  title: "Investor Opportunity | Overboard Asia",
+  description: 'A proven retail model with six profitable locations, poised for strategic expansion. Discover the opportunity to invest in a market leader in Southeast Asia.'
 };
 
 export default function InvestorsPage() {

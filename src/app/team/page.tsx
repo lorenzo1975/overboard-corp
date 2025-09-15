@@ -7,7 +7,8 @@ import { Separator } from '@/components/ui/separator';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'The Team | Overboard',
+  title: 'The Team | Overboard Asia',
+  description: "Meet the passionate and experienced team driving Overboard Asia's success. Learn about our company culture and explore career opportunities with us."
 };
 
 export default function TeamPage() {

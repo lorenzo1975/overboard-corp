@@ -4,7 +4,8 @@ import { ContactForm } from '@/components/contact-form';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Contact Us | Overboard',
+  title: 'Contact Us | Overboard Asia',
+  description: "Get in touch with the Overboard Asia team. Whether you're an investor, potential partner, or have a question, fill out our contact form and we'll respond promptly.",
 };
 
 

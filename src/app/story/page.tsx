@@ -6,7 +6,8 @@ import { Separator } from "@/components/ui/separator";
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Our Story | Overboard',
+  title: 'Our Story | Overboard Asia',
+  description: 'Learn about the journey of Overboard Asia, from a single franchise store in Krabi to a leading multi-brand water sports lifestyle retailer in Thailand.'
 };
 
 const timelineEvents = [
