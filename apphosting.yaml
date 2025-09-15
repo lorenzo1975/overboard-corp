@@ -8,13 +8,3 @@ runConfig:
   # Server-side environment variables can be sourced from Cloud Secret Manager.
   # https://firebase.google.com/docs/app-hosting/configure#manage-secrets
   secrets: []
-
-# Build-time environment variables can be specified here.
-# https://firebase.google.com/docs/app-hosting/configure#build-configuration
-buildConfig:
-  buildVars:
-    NEXT_PUBLIC_GOOGLE_MAPS_API_KEY: ''
-    NEXT_PUBLIC_GA_MEASUREMENT_ID: ''
-    SENDGRID_API_KEY: ''
-    SENDGRID_TO_EMAIL: ''
-    SENDGRID_FROM_EMAIL: ''
