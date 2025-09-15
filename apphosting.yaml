@@ -5,3 +5,15 @@ runConfig:
   # Increase this value if you'd like to automatically spin up
   # more instances in response to increased traffic.
   maxInstances: 1
+  # Server-side environment variables can be sourced from Cloud Secret Manager.
+  # https://firebase.google.com/docs/app-hosting/configure#manage-secrets
+  secrets:
+    - secret: SENDGRID_API_KEY
+    - secret: SENDGRID_TO_EMAIL
+    - secret: SENDGRID_FROM_EMAIL
+
+# Build-time environment variables can be specified here.
+# https://firebase.google.com/docs/app-hosting/configure#build-configuration
+buildConfig:
+  buildVars:
+    NEXT_PUBLIC_GOOGLE_MAPS_API_KEY: ''
