@@ -20,14 +20,14 @@ const Brand = ({ name, logo, invert, darkLogo }: { name: string; logo: string; i
           alt={`${name} logo`}
           width={120}
           height={40}
-          className={cn("object-contain dark:hidden w-auto h-auto")}
+          className={cn("object-contain dark:hidden h-10 w-auto")}
         />
         <Image
           src={darkLogo}
           alt={`${name} logo dark mode`}
           width={120}
           height={40}
-          className={cn("object-contain hidden dark:block w-auto h-auto")}
+          className={cn("object-contain hidden dark:block h-10 w-auto")}
         />
       </>
     ) : (
@@ -36,7 +36,7 @@ const Brand = ({ name, logo, invert, darkLogo }: { name: string; logo: string; i
         alt={`${name} logo`}
         width={120}
         height={40}
-        className={cn("object-contain w-auto h-auto", invert && "dark:invert")}
+        className={cn("object-contain h-10 w-auto", invert && "dark:invert")}
       />
     )}
   </li>
