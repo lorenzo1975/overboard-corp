@@ -18,25 +18,25 @@ const Brand = ({ name, logo, invert, darkLogo }: { name: string; logo: string; i
         <Image
           src={logo}
           alt={`${name} logo`}
-          width={120}
-          height={40}
-          className={cn("object-contain dark:hidden h-10 w-auto")}
+          width={150}
+          height={50}
+          className={cn("object-contain dark:hidden h-12 md:h-10 w-auto")}
         />
         <Image
           src={darkLogo}
           alt={`${name} logo dark mode`}
-          width={120}
-          height={40}
-          className={cn("object-contain hidden dark:block h-10 w-auto")}
+          width={150}
+          height={50}
+          className={cn("object-contain hidden dark:block h-12 md:h-10 w-auto")}
         />
       </>
     ) : (
        <Image
         src={logo}
         alt={`${name} logo`}
-        width={120}
-        height={40}
-        className={cn("object-contain h-10 w-auto", invert && "dark:invert")}
+        width={150}
+        height={50}
+        className={cn("object-contain h-12 md:h-10 w-auto", invert && "dark:invert")}
       />
     )}
   </li>
