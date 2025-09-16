@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
 import { Toaster } from "@/components/ui/toaster";
+import { Toaster as SonnerToaster } from "sonner";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { GoogleAnalytics } from "@/components/google-analytics";
@@ -44,6 +45,7 @@ export default function RootLayout({
         >
           {children}
           <Toaster />
+          <SonnerToaster richColors />
         </ThemeProvider>
       </body>
     </html>
