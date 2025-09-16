@@ -1,12 +1,14 @@
-import type {Metadata} from 'next';
+import type { Metadata } from "next";
+import { Suspense } from "react";
 import { Toaster } from "@/components/ui/toaster";
-import './globals.css';
-import { ThemeProvider } from '@/components/theme-provider';
-import { GoogleAnalytics } from '@/components/google-analytics';
+import "./globals.css";
+import { ThemeProvider } from "@/components/theme-provider";
+import { GoogleAnalytics } from "@/components/google-analytics";
 
 export const metadata: Metadata = {
-  title: 'Overboard: Investor Landing',
-  description: 'A proven retail model with six profitable locations, poised for strategic expansion. Discover the opportunity to invest in a market leader.',
+  title: "Overboard: Investor Landing",
+  description:
+    "A proven retail model with six profitable locations, poised for strategic expansion. Discover the opportunity to invest in a market leader.",
 };
 
 export default function RootLayout({
@@ -18,13 +20,22 @@ export default function RootLayout({
     <html lang="en" className="scroll-smooth" suppressHydrationWarning>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"></link>
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+          rel="stylesheet"
+        ></link>
       </head>
       <body className="font-body antialiased">
-        {process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID && (
+        <Suspense>
+          {process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID && (
             <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID} />
-        )}
+          )}
+        </Suspense>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
