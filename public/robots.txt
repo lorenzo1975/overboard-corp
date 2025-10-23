@@ -1,5 +1,9 @@
 # https://www.robotstxt.org/robotstxt.html
 User-agent: *
-Disallow:
+Allow: /
 
-Sitemap: https://your-domain.com/sitemap.xml
+# Disallow admin and API routes
+Disallow: /api/
+
+# Sitemap location
+Sitemap: https://overboard-corp.netlify.app/sitemap.xml

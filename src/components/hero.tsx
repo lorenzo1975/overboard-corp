@@ -36,7 +36,6 @@ export function Hero() {
                     Download Investor Deck
                   </a>
                 </Button>
-                <p className="text-sm font-medium text-white/70">coming soon</p>
                 <Button
                   size="lg"
                   variant="link"

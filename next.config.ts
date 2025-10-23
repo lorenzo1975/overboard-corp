@@ -1,13 +1,6 @@
 import type {NextConfig} from 'next';
 
 const nextConfig: NextConfig = {
-  /* config options here */
-  typescript: {
-    ignoreBuildErrors: true,
-  },
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
   images: {
     remotePatterns: [
       {
@@ -23,7 +16,12 @@ const nextConfig: NextConfig = {
         pathname: '/**',
       }
     ],
+    formats: ['image/avif', 'image/webp'],
   },
+  // Enable compression
+  compress: true,
+  // Optimize production builds
+  productionBrowserSourceMaps: false,
 };
 
 export default nextConfig;

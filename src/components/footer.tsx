@@ -13,6 +13,20 @@ export function Footer() {
             <p className="text-sm text-primary-foreground/80">
               Pioneering the premier beachwear lifestyle experience in Southeast Asia.
             </p>
+            <div className="flex items-center gap-4">
+              <h3 className="font-semibold uppercase tracking-wider">Follow Us</h3>
+              <div className="flex space-x-3">
+                <Link href="https://www.linkedin.com/in/lorenzobeltrame/" aria-label="LinkedIn" target="_blank">
+                  <Linkedin className="h-6 w-6 text-primary-foreground/80 hover:text-primary-foreground" />
+                </Link>
+                <Link href="https://www.facebook.com/OverboardThailand/" aria-label="Facebook" target="_blank">
+                  <Facebook className="h-6 w-6 text-primary-foreground/80 hover:text-primary-foreground" />
+                </Link>
+                <Link href="https://www.instagram.com/overboardthailand/" aria-label="Instagram" target="_blank">
+                  <Instagram className="h-6 w-6 text-primary-foreground/80 hover:text-primary-foreground" />
+                </Link>
+              </div>
+            </div>
           </div>
           <div>
             <h3 className="font-semibold uppercase tracking-wider">Links</h3>
@@ -20,6 +34,14 @@ export function Footer() {
               <li><Link href="/contact" className="text-sm text-primary-foreground/80 hover:text-primary-foreground">About Us</Link></li>
               <li><Link href="/store-locator" className="text-sm text-primary-foreground/80 hover:text-primary-foreground">Our Stores</Link></li>
               <li><Link href="/team" className="text-sm text-primary-foreground/80 hover:text-primary-foreground">Careers</Link></li>
+            </ul>
+          </div>
+          <div>
+            <h3 className="font-semibold uppercase tracking-wider">Privacy</h3>
+            <ul className="mt-4 space-y-2">
+              <li><Link href="/terms-of-service" className="text-sm text-primary-foreground/80 hover:text-primary-foreground">Terms of Service</Link></li>
+              <li><Link href="/terms-of-use" className="text-sm text-primary-foreground/80 hover:text-primary-foreground">Terms of Use</Link></li>
+              <li><Link href="/terms-of-use-gdpr" className="text-sm text-primary-foreground/80 hover:text-primary-foreground">GDPR Terms</Link></li>
             </ul>
           </div>
           <div>
@@ -34,20 +56,6 @@ export function Footer() {
                 <span className="text-sm text-primary-foreground/80">+66 848-44-5742</span>
               </li>
             </ul>
-          </div>
-          <div>
-            <h3 className="font-semibold uppercase tracking-wider">Follow Us</h3>
-            <div className="mt-4 flex space-x-4">
-              <Link href="https://www.linkedin.com/in/lorenzobeltrame/" aria-label="LinkedIn" target="_blank">
-                <Linkedin className="h-6 w-6 text-primary-foreground/80 hover:text-primary-foreground" />
-              </Link>
-              <Link href="https://www.facebook.com/OverboardThailand/" aria-label="Facebook" target="_blank">
-                <Facebook className="h-6 w-6 text-primary-foreground/80 hover:text-primary-foreground" />
-              </Link>
-              <Link href="https://www.instagram.com/overboardthailand/" aria-label="Instagram" target="_blank">
-                <Instagram className="h-6 w-6 text-primary-foreground/80 hover:text-primary-foreground" />
-              </Link>
-            </div>
           </div>
         </div>
         <Separator className="my-8 bg-primary-foreground/20" />

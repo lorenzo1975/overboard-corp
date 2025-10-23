@@ -2,7 +2,6 @@
 'use client'
 import React from 'react';
 import { GoogleMap, useJsApiLoader, InfoWindow } from '@react-google-maps/api';
-import type { AdvancedMarkerElement } from 'google.maps.marker';
 
 const containerStyle = {
   width: '100%',
@@ -46,9 +45,9 @@ export function StoreMap({ stores, activeStore, setActiveStore }: StoreMapProps)
 
   const [map, setMap] = React.useState<google.maps.Map | null>(null);
   const [infoWindowStore, setInfoWindowStore] = React.useState<Store | null>(null);
-  const [markers, setMarkers] = React.useState<{[key: string]: AdvancedMarkerElement}>({});
-  
-  const markerRefs = React.useRef<{[key: string]: AdvancedMarkerElement}>({});
+  const [markers, setMarkers] = React.useState<{[key: string]: google.maps.marker.AdvancedMarkerElement}>({});
+
+  const markerRefs = React.useRef<{[key: string]: google.maps.marker.AdvancedMarkerElement}>({});
 
   const onLoad = React.useCallback(function callback(map: google.maps.Map) {
     map.setZoom(7);
@@ -62,7 +61,7 @@ export function StoreMap({ stores, activeStore, setActiveStore }: StoreMapProps)
 
   React.useEffect(() => {
     if (map && isLoaded && google.maps.marker) {
-      const newMarkers: {[key: string]: AdvancedMarkerElement} = {};
+      const newMarkers: {[key: string]: google.maps.marker.AdvancedMarkerElement} = {};
       stores.forEach(store => {
         const pin = new google.maps.marker.PinElement({
           background: 'hsl(var(--primary))',
