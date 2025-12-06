@@ -267,7 +267,7 @@ function createDeck() {
     }
   ];
 
-  strategies.forEach((strategy, index) => {
+  strategies.forEach((strategy) => {
     doc.fontSize(14)
       .fillColor(colors.accent)
       .font('Helvetica-Bold')

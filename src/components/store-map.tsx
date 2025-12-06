@@ -55,7 +55,7 @@ export function StoreMap({ stores, activeStore, setActiveStore }: StoreMapProps)
     setMap(map);
   }, [])
 
-  const onUnmount = React.useCallback(function callback(map: google.maps.Map) {
+  const onUnmount = React.useCallback(() => {
     setMap(null);
   }, [])
 

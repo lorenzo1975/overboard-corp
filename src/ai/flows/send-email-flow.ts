@@ -22,7 +22,8 @@ export type SendEmailInput = z.infer<typeof SendEmailInputSchema>;
 export async function sendEmail(
   input: SendEmailInput
 ): Promise<{ success: boolean }> {
-  console.log("Received contact form submission:", input);
+  const validatedInput = SendEmailInputSchema.parse(input);
+  console.log("Received contact form submission:", validatedInput);
 
   const {
     MAILGUN_API_KEY,
@@ -50,14 +51,14 @@ export async function sendEmail(
   const msg = {
     to: MAILGUN_TO_EMAIL,
     from: `Overboard Contact Form <${MAILGUN_FROM_EMAIL}>`,
-    "h:Reply-To": input.email,
-    subject: `New Contact Form Submission: ${input.subject}`,
+    "h:Reply-To": validatedInput.email,
+    subject: `New Contact Form Submission: ${validatedInput.subject}`,
     html: `
       <h1>New Message from your Website Contact Form</h1>
-      <p><strong>Name:</strong> ${input.name}</p>
-      <p><strong>Email:</strong> ${input.email}</p>
+      <p><strong>Name:</strong> ${validatedInput.name}</p>
+      <p><strong>Email:</strong> ${validatedInput.email}</p>
       <p><strong>Message:</strong></p>
-      <p>${input.message.replace(/\n/g, "<br>")}</p>
+      <p>${validatedInput.message.replace(/\n/g, "<br>")}</p>
     `,
   };
 
