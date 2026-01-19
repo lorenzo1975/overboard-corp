@@ -1,50 +1,54 @@
 /* eslint-disable react/no-unescaped-entities */
-import Image from 'next/image';
-import { Card, CardContent, CardHeader } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
+import { StoreMapCard } from '@/components/store-map-card';
 
 const stores = [
   {
-    name: 'Overboard Bangtao - Laguna Beach',
-    location: 'Phuket, Thailand',
+    name: 'Overboard Bangtao',
+    location: 'Laguna Beach, Phuket',
     fact: 'Top Performing Location',
-    image: '/images/destinations/Bangtao.jpg',
-    aiHint: 'beachfront store phuket'
+    lat: 7.994,
+    lng: 98.293,
+    mapUrl: 'https://www.google.com/maps/search/?api=1&query=Overboard+Bang+Tao'
   },
   {
-    name: 'Overboard Karon - Phuket',
-    location: 'Phuket, Thailand',
+    name: 'Overboard Karon',
+    location: 'Karon Beach, Phuket',
     fact: 'Highest Rental Revenue',
-    image: '/images/destinations/Karon.jpg',
-    aiHint: 'beach shop samui'
+    lat: 7.846,
+    lng: 98.295,
+    mapUrl: 'https://www.google.com/maps/search/?api=1&query=OVERBOARD+KARON'
   },
   {
-    name: 'Overboard Nai Harn - Phuket',
-    location: 'Phuket, Thailand',
+    name: 'Overboard Nai Harn',
+    location: 'Nai Harn, Phuket',
     fact: 'Newest Flagship',
-    image: '/images/destinations/nai-harn.jpg',
-    aiHint: 'modern retail pattaya'
+    lat: 7.775,
+    lng: 98.305,
+    mapUrl: 'https://www.google.com/maps/search/?api=1&query=Overboard+Nai+Harn'
   },
   {
-    name: 'Overboard Hua Hin - Main Strip',
-    location: 'Hua Hin, Thailand',
+    name: 'Overboard Hua Hin',
+    location: 'Main Strip, Hua Hin',
     fact: 'Community Hub',
-    image: '/images/destinations/hua-hin.jpg',
-    aiHint: 'watersports shop huahin'
+    lat: 12.571,
+    lng: 99.96,
+    mapUrl: 'https://www.google.com/maps/search/?api=1&query=Overboard+Hua+Hin'
   },
   {
-    name: 'O Neill Rawai - Phuket',
-    location: 'Phuket, Thailand',
+    name: "O'Neill Rawai",
+    location: 'Rawai, Phuket',
     fact: 'Best Customer Ratings',
-    image: '/images/destinations/Rawai.jpg',
-    aiHint: 'surf store krabi'
+    lat: 7.779,
+    lng: 98.325,
+    mapUrl: 'https://www.google.com/maps/search/?api=1&query=O%27NEILL+Rawai'
   },
   {
-    name: 'Overboard Krabi',
-    location: 'Ao Nang, Krabi Thailand',
+    name: 'Quiksilver Krabi',
+    location: 'Ao Nang, Krabi',
     fact: 'Urban Concept Store',
-    image: '/images/destinations/Krabi.jpg',
-    aiHint: 'city retail bangkok'
+    lat: 8.032,
+    lng: 98.822,
+    mapUrl: 'https://www.google.com/maps/search/?api=1&query=Quiksilver+Krabi'
   },
 ];
 
@@ -58,25 +62,15 @@ export function Stores() {
         </div>
         <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {stores.map((store) => (
-            <Card key={store.name} className="overflow-hidden transition-transform duration-300 ease-in-out hover:scale-105 hover:shadow-xl">
-              <CardHeader className="p-0">
-                <div className="relative h-56 w-full">
-                  <Image
-                    src={store.image}
-                    alt={`Storefront of ${store.name}`}
-                    fill
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    className="object-cover"
-                    data-ai-hint={store.aiHint}
-                  />
-                </div>
-              </CardHeader>
-              <CardContent className="p-4">
-                <h3 className="text-lg font-semibold">{store.name}</h3>
-                <p className="text-sm text-muted-foreground">{store.location}</p>
-                <Badge variant="outline" className="mt-2" style={{ borderColor: 'hsl(var(--accent))', color: 'hsl(var(--accent))' }}>{store.fact}</Badge>
-              </CardContent>
-            </Card>
+            <StoreMapCard
+              key={store.name}
+              name={store.name}
+              location={store.location}
+              fact={store.fact}
+              lat={store.lat}
+              lng={store.lng}
+              mapUrl={store.mapUrl}
+            />
           ))}
         </div>
       </div>
