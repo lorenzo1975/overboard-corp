@@ -2,6 +2,7 @@
 
 import { Badge } from '@/components/ui/badge';
 import { MapPin } from 'lucide-react';
+import { useState, useEffect } from 'react';
 
 interface StoreMapCardProps {
   name: string;
@@ -244,14 +245,21 @@ function formatCoordinates(lat: number, lng: number): string {
 }
 
 export function StoreMapCard({ name, location, fact, lat, lng, mapUrl }: StoreMapCardProps) {
+  const [mounted, setMounted] = useState(false);
   const themeName = getThemeForStore(name);
   const theme = themes[themeName];
-  const { blocks, roads, waterPath, parks } = generateMapFeatures(lat, lng);
   const coordinates = formatCoordinates(lat, lng);
   
-  // Marker position (center area)
-  const markerX = 35 + (lat % 1) * 15;
-  const markerY = 38 + (lng % 1) * 10;
+  // Only generate map features on client to avoid hydration mismatch
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+  
+  const mapFeatures = mounted ? generateMapFeatures(lat, lng) : null;
+  
+  // Marker position (center area) - use fixed values for SSR
+  const markerX = mounted ? 35 + (lat % 1) * 15 : 42;
+  const markerY = mounted ? 38 + (lng % 1) * 10 : 42;
 
   return (
     <a
@@ -271,65 +279,69 @@ export function StoreMapCard({ name, location, fact, lat, lng, mapUrl }: StoreMa
           {/* Base land color */}
           <rect x="0" y="0" width="100" height="100" fill={theme.land} />
           
-          {/* Water body */}
-          {waterPath && (
-            <path d={waterPath} fill={theme.water} className="transition-opacity duration-300" />
+          {mapFeatures && (
+            <>
+              {/* Water body */}
+              {mapFeatures.waterPath && (
+                <path d={mapFeatures.waterPath} fill={theme.water} className="transition-opacity duration-300" />
+              )}
+              
+              {/* Parks */}
+              {mapFeatures.parks.map((park, i) => (
+                <ellipse
+                  key={`park-${i}`}
+                  cx={park.cx}
+                  cy={park.cy}
+                  rx={park.rx}
+                  ry={park.ry}
+                  fill={theme.parks}
+                  opacity="0.6"
+                />
+              ))}
+              
+              {/* City blocks */}
+              {mapFeatures.blocks.map((block, i) => (
+                <rect
+                  key={`block-${i}`}
+                  x={block.x}
+                  y={block.y}
+                  width={block.w}
+                  height={block.h}
+                  rx={block.r}
+                  fill={theme.blocks}
+                  className="transition-opacity duration-300 group-hover:opacity-90"
+                />
+              ))}
+              
+              {/* Roads - minor first, then major on top */}
+              {mapFeatures.roads
+                .filter((r) => !r.major)
+                .map((road, i) => (
+                  <path
+                    key={`road-minor-${i}`}
+                    d={road.d}
+                    stroke={theme.roads}
+                    strokeWidth={road.width}
+                    strokeLinecap="round"
+                    fill="none"
+                    className="transition-opacity duration-300"
+                  />
+                ))}
+              {mapFeatures.roads
+                .filter((r) => r.major)
+                .map((road, i) => (
+                  <path
+                    key={`road-major-${i}`}
+                    d={road.d}
+                    stroke={theme.roadsMajor}
+                    strokeWidth={road.width}
+                    strokeLinecap="round"
+                    fill="none"
+                    className="transition-opacity duration-300"
+                  />
+                ))}
+            </>
           )}
-          
-          {/* Parks */}
-          {parks.map((park, i) => (
-            <ellipse
-              key={`park-${i}`}
-              cx={park.cx}
-              cy={park.cy}
-              rx={park.rx}
-              ry={park.ry}
-              fill={theme.parks}
-              opacity="0.6"
-            />
-          ))}
-          
-          {/* City blocks */}
-          {blocks.map((block, i) => (
-            <rect
-              key={`block-${i}`}
-              x={block.x}
-              y={block.y}
-              width={block.w}
-              height={block.h}
-              rx={block.r}
-              fill={theme.blocks}
-              className="transition-opacity duration-300 group-hover:opacity-90"
-            />
-          ))}
-          
-          {/* Roads - minor first, then major on top */}
-          {roads
-            .filter((r) => !r.major)
-            .map((road, i) => (
-              <path
-                key={`road-minor-${i}`}
-                d={road.d}
-                stroke={theme.roads}
-                strokeWidth={road.width}
-                strokeLinecap="round"
-                fill="none"
-                className="transition-opacity duration-300"
-              />
-            ))}
-          {roads
-            .filter((r) => r.major)
-            .map((road, i) => (
-              <path
-                key={`road-major-${i}`}
-                d={road.d}
-                stroke={theme.roadsMajor}
-                strokeWidth={road.width}
-                strokeLinecap="round"
-                fill="none"
-                className="transition-opacity duration-300"
-              />
-            ))}
           
           {/* Location marker glow effect */}
           <circle
