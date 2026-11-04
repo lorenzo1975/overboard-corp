@@ -2,7 +2,7 @@
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import * as z from "zod";
+import type { z } from "zod";
 import React from "react";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
@@ -25,29 +25,14 @@ import {
   CardTitle,
   CardDescription,
 } from "@/components/ui/card";
-import { sendEmail, type SendEmailInput } from "@/ai/flows/send-email-flow";
-
-const formSchema = z.object({
-  name: z.string().min(2, {
-    message: "Name must be at least 2 characters.",
-  }),
-  email: z.string().email({
-    message: "Please enter a valid email address.",
-  }),
-  subject: z.string().min(5, {
-    message: "Subject must be at least 5 characters.",
-  }),
-  message: z.string().min(10, {
-    message: "Message must be at least 10 characters.",
-  }),
-});
+import { contactSchema } from "@/lib/contact-schema";
 
 export function ContactForm() {
   const router = useRouter();
   const [isSubmitting, setIsSubmitting] = React.useState(false);
 
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
+  const form = useForm<z.infer<typeof contactSchema>>({
+    resolver: zodResolver(contactSchema),
     defaultValues: {
       name: "",
       email: "",
@@ -56,16 +41,23 @@ export function ContactForm() {
     },
   });
 
-  async function onSubmit(values: z.infer<typeof formSchema>) {
+  async function onSubmit(values: z.infer<typeof contactSchema>, event?: React.BaseSyntheticEvent) {
+    const formElement = event?.target;
+    if (!(formElement instanceof HTMLFormElement)) return;
+    const companyWebsite = new FormData(formElement).get("companyWebsite");
+
     setIsSubmitting(true);
     try {
-      // For testing purposes, let's simulate a successful submission
-      const success = window.location.hash.includes("test-success");
-      if (success) {
-        console.log("Simulating successful email submission.");
-      } else {
-        await sendEmail(values as SendEmailInput);
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...values, companyWebsite }),
+      });
+      if (response.status === 429) {
+        toast.error("Too many attempts. Please wait a minute and try again.");
+        return;
       }
+      if (response.status !== 204) throw new Error("Contact submission failed.");
 
       toast.success("Message Sent!", {
         description:
@@ -77,8 +69,7 @@ export function ContactForm() {
       }, 3000); // 3-second delay before redirecting
 
       form.reset();
-    } catch (error) {
-      console.error("Failed to send email:", error);
+    } catch {
       toast.error("Uh oh! Something went wrong.", {
         description:
           "There was a problem sending your message. Please try again.",
@@ -99,6 +90,10 @@ export function ContactForm() {
       <CardContent>
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+            <div hidden aria-hidden="true">
+              <label htmlFor="contact-company-website">Leave this field empty</label>
+              <input id="contact-company-website" name="companyWebsite" autoComplete="off" tabIndex={-1} />
+            </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <FormField
                 control={form.control}
