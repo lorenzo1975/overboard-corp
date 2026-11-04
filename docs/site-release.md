@@ -20,7 +20,7 @@ The route reads the original, reviewed register HTML from a private Netlify Blob
 python3 -c 'import getpass, hashlib; user = input("Username: "); password = getpass.getpass("Password: "); print(hashlib.sha256(f"{user}:{password}".encode()).hexdigest())'
 ```
 
-The response permits only the reviewed inline script and stylesheet by CSP hash. Review and update the hashes in the route if those blocks change.
+The route replaces the attachment's original inline filter script with the site's shop, user, and provider filters. The response permits only that script and the reviewed stylesheet by CSP hash. Review and update the stylesheet hash in the route if its contents change.
 
 ## Release and rollback
 

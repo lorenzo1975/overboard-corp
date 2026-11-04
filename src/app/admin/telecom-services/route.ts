@@ -1,5 +1,6 @@
 import { createHash, timingSafeEqual } from "node:crypto";
 import { getStore } from "@netlify/blobs";
+import { registerFilter } from "./register-filter";
 
 export const dynamic = "force-dynamic";
 export const runtime = "nodejs";
@@ -12,10 +13,11 @@ const privateHeaders = {
   "X-Robots-Tag": "noindex, nofollow",
 };
 
-// The hashes allow only the reviewed attachment's inline filter and stylesheet.
+// The hashes allow only the site's filter script and the reviewed register stylesheet.
+const filterHash = createHash("sha256").update(registerFilter).digest("base64");
 const registerPolicy = [
   "default-src 'none'",
-  "script-src 'sha256-GQUvMx7dP9+Zg4UUN7A618LWhD5egHyXDnzAt4GAnpU='",
+  `script-src 'sha256-${filterHash}'`,
   "style-src 'sha256-+nxybtsxIJuC3Da8hyxH9XR/vHA0hiOVZbgc1dWIVQg='",
   "base-uri 'none'",
   "frame-ancestors 'none'",
@@ -53,7 +55,8 @@ export async function GET(request: Request) {
       .get(TELECOM_REGISTER_BLOB_KEY, { type: "text" });
     if (!register) return unavailable();
 
-    return new Response(register, {
+    const html = register.replace(/<script>[\s\S]*?<\/script>/, `<script>${registerFilter}</script>`);
+    return new Response(html, {
       headers: {
         ...privateHeaders,
         "Content-Type": "text/html; charset=utf-8",
