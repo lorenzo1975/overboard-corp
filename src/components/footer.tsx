@@ -1,7 +1,8 @@
 import Link from 'next/link';
 import { Logo } from '@/components/logo';
 import { Separator } from '@/components/ui/separator';
-import { Mail, Phone, Linkedin, Facebook, Instagram } from 'lucide-react';
+import { Mail, Phone } from 'lucide-react';
+import { FaLinkedin as Linkedin, FaFacebook as Facebook, FaInstagram as Instagram } from 'react-icons/fa6';
 
 export function Footer() {
   return (

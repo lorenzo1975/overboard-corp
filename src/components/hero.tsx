@@ -13,7 +13,7 @@ export function Hero() {
               <span className="inline-flex items-center justify-center self-center rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-white/70 backdrop-blur lg:self-start">
                 Established Retailer
               </span>
-              <h1 className="mt-6 text-3xl font-extrabold leading-tight tracking-tight sm:text-4xl md:text-5xl font-headline">
+              <h1 className="mt-6 text-3xl font-extrabold leading-tight tracking-tight sm:text-4xl sm:leading-10 md:text-5xl md:leading-none font-headline">
                 Thailand's Premier Multi Brand Beachwear Retailer: A Proven
                 Model for Expansion
               </h1>
