@@ -45,8 +45,6 @@ export function StoreMap({ stores, activeStore, setActiveStore }: StoreMapProps)
 
   const [map, setMap] = React.useState<google.maps.Map | null>(null);
   const [infoWindowStore, setInfoWindowStore] = React.useState<Store | null>(null);
-  const [markers, setMarkers] = React.useState<{[key: string]: google.maps.marker.AdvancedMarkerElement}>({});
-
   const markerRefs = React.useRef<{[key: string]: google.maps.marker.AdvancedMarkerElement}>({});
 
   const onLoad = React.useCallback(function callback(map: google.maps.Map) {
@@ -82,7 +80,6 @@ export function StoreMap({ stores, activeStore, setActiveStore }: StoreMapProps)
 
         newMarkers[store.name] = marker;
       });
-      setMarkers(newMarkers);
       markerRefs.current = newMarkers;
 
       // Cleanup function
@@ -99,7 +96,7 @@ export function StoreMap({ stores, activeStore, setActiveStore }: StoreMapProps)
   }, [map, isLoaded, stores, setActiveStore]);
 
    React.useEffect(() => {
-    Object.entries(markers).forEach(([name, marker]) => {
+    Object.entries(markerRefs.current).forEach(([name, marker]) => {
       const storeIsActive = activeStore?.name === name;
       const pin = marker.content as HTMLElement;
       if (pin) {
@@ -111,7 +108,7 @@ export function StoreMap({ stores, activeStore, setActiveStore }: StoreMapProps)
         }
       }
     });
-  }, [activeStore, markers]);
+  }, [activeStore, map, isLoaded, stores, setActiveStore]);
   
   if (loadError) {
     return <div>Error loading maps</div>

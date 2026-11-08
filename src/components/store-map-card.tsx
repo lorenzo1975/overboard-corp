@@ -2,7 +2,7 @@
 
 import { Badge } from '@/components/ui/badge';
 import { MapPin } from 'lucide-react';
-import { useState, useEffect } from 'react';
+import { useSyncExternalStore } from 'react';
 
 interface StoreMapCardProps {
   name: string;
@@ -244,17 +244,17 @@ function formatCoordinates(lat: number, lng: number): string {
   return `${Math.abs(lat).toFixed(3)}° ${latDir}  ${Math.abs(lng).toFixed(3)}° ${lngDir}`;
 }
 
+const subscribeToHydration = () => () => {};
+const clientSnapshot = () => true;
+const serverSnapshot = () => false;
+
 export function StoreMapCard({ name, location, fact, lat, lng, mapUrl }: StoreMapCardProps) {
-  const [mounted, setMounted] = useState(false);
+  const mounted = useSyncExternalStore(subscribeToHydration, clientSnapshot, serverSnapshot);
   const themeName = getThemeForStore(name);
   const theme = themes[themeName];
   const coordinates = formatCoordinates(lat, lng);
   
   // Only generate map features on client to avoid hydration mismatch
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-  
   const mapFeatures = mounted ? generateMapFeatures(lat, lng) : null;
   
   // Marker position (center area) - use fixed values for SSR
