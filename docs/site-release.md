@@ -26,4 +26,6 @@ The route replaces the attachment's original inline filter script with the site'
 
 Before publishing, run the Netlify build and save the currently published deploy ID. When production configuration is ready, publish and smoke-test the public pages, the contact form, and the authenticated register. Check Netlify's deploy post-processing for rate limit configuration errors.
 
+The November 2026 dependency refresh was integrated for development without publishing it. Local lint, typecheck and webpack build passed, and the public pages and store-card layout were checked in a browser. Local Google Maps credentials were unavailable; the existing production store map was checked separately. Complete the Netlify build and the release checks above before publishing the refresh. A later push to `main` without `[skip netlify]` can deploy all pending changes, so coordinate that push as a release.
+
 The current rollback target recorded before the update is [deploy `696df49cb60e12000835ac25`](https://app.netlify.com/projects/glistening-sfogliatella-6e7620/deploys/696df49cb60e12000835ac25) at commit `fcd9d6a`. Use **Publish deploy** on the previous successful deploy to restore it. If Git auto-publishing is active, lock the restored deploy until the release issue is resolved.
